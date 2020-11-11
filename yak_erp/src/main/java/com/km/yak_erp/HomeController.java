@@ -30,7 +30,6 @@ public class HomeController {
 		return mav;
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping("/blist")
     public String blist() throws Exception {
         return "blist";
@@ -43,7 +42,7 @@ public class HomeController {
     public String mlist() throws Exception {
         return "mlist";
     }
-=======
+
 	@RequestMapping(value = "/Information", method = RequestMethod.GET)
 	public ModelAndView Info(Model model) {
 		ModelAndView mav = new ModelAndView();
@@ -51,5 +50,4 @@ public class HomeController {
 		return mav;
 	}
 	
->>>>>>> jy
 }
