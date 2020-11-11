@@ -30,4 +30,11 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/Information", method = RequestMethod.GET)
+	public ModelAndView Info(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("Information");
+		return mav;
+	}
+	
 }
