@@ -30,4 +30,16 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping("/blist")
+    public String blist() throws Exception {
+        return "blist";
+    }
+	@RequestMapping("/dlist")
+    public String dlist() throws Exception {
+        return "dlist";
+    }
+	@RequestMapping("/mlist")
+    public String mlist() throws Exception {
+        return "mlist";
+    }
 }
