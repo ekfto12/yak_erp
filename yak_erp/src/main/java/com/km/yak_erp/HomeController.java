@@ -42,4 +42,12 @@ public class HomeController {
     public String mlist() throws Exception {
         return "mlist";
     }
+
+	@RequestMapping(value = "/Information", method = RequestMethod.GET)
+	public ModelAndView Info(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("Information");
+		return mav;
+	}
+	
 }
