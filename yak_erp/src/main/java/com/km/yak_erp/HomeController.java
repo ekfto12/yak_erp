@@ -30,4 +30,24 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping("/blist")
+    public String blist() throws Exception {
+        return "blist";
+    }
+	@RequestMapping("/dlist")
+    public String dlist() throws Exception {
+        return "dlist";
+    }
+	@RequestMapping("/mlist")
+    public String mlist() throws Exception {
+        return "mlist";
+    }
+
+	@RequestMapping(value = "/Information", method = RequestMethod.GET)
+	public ModelAndView Info(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("Information");
+		return mav;
+	}
+	
 }
