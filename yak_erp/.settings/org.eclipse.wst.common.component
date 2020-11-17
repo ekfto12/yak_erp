@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
 	<wb-module deploy-name="yak_erp-1.0.0-BUILD-SNAPSHOT">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
@@ -9,7 +8,6 @@
         <property name="context-root" value="yak_erp"/>
 	</wb-module>
 </project-modules>
-=======
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
 	<wb-module deploy-name="sample">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
@@ -20,4 +18,3 @@
         <property name="context-root" value="sample"/>
 	</wb-module>
 </project-modules>
->>>>>>> 0966b792e274143202645668f24b6f935d05cf65
