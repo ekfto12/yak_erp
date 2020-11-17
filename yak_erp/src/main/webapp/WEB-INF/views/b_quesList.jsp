@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
 
 <head>
-<title>¾àÆÈÀÌ | ±â¾÷ ¹®ÀÇ ³»¿ª</title>
+<title>ì•½íŒ”ì´ | ê¸°ì—… ë¬¸ì˜ ë‚´ì—­</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -75,28 +75,28 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class="active"><i
+						<li><a href="/yak_erp/" class=""><i
 								class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li><a href="#subPages" data-toggle="collapse"
-							class="collapsed"><i class="lnr lnr-linearicons"></i> <span>ºñÁö´Ï½º</span>
+							class="active"><i class="lnr lnr-linearicons"></i> <span>ë¹„ì§€ë‹ˆìŠ¤</span>
 								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
+							<div id="subPages" class="collapse in">
 								<ul class="nav">
-									<li><a href="/yak_erp/blist" class="">±â¾÷Á¤º¸Á¶È¸</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">¹è³Ê°ü¸®</a></li>
-									<li><a href="page-lockscreen.html" class="">¹®ÀÇ³»¿ª</a></li>
+									<li><a href="/yak_erp/blist" class="">ê¸°ì—…ì •ë³´ì¡°íšŒ</a></li>
+									<li><a href="/yak_erp/Banner" class="">ë°°ë„ˆê´€ë¦¬</a></li>
+									<li><a href="/yak_erp/b_quesList" class="active">ë¬¸ì˜ë‚´ì—­</a></li>
 								</ul>
 							</div></li>
 						<li><a href="/yak_erp/dlist" class=""><i
-								class="lnr lnr-cog"></i> <span>ÄÜÅÙÃ÷°ü¸®</span></a></li>
+								class="lnr lnr-cog"></i> <span>ì½˜í…ì¸ ê´€ë¦¬</span></a></li>
 						<li><a href="#subPagess" data-toggle="collapse"
-							class="collapsed"><i class="lnr lnr-file-empty"></i> <span>È¸¿ø°ü¸®</span>
+							class="collapsed"><i class="lnr lnr-file-empty"></i> <span>íšŒì›ê´€ë¦¬</span>
 								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/mlist" class="">È¸¿øÀÌ·ÂÁ¶È¸</a></li>
-									<li><a href="/yak_erp/m_quesList" class="">¹®ÀÇ³»¿ª</a></li>
-									<li><a href="page-lockscreen.html" class="">¹®ÀÚ¹ß¼Û³»¿ª</a></li>
+									<li><a href="/yak_erp/mlist" class="">íšŒì›ì´ë ¥ì¡°íšŒ</a></li>
+									<li><a href="/yak_erp/m_quesList" class="">ë¬¸ì˜ë‚´ì—­</a></li>
+									<li><a href="/yak_erp/b_quesList" class="">ë¬¸ìžë°œì†¡ë‚´ì—­</a></li>
 								</ul>
 							</div></li>
 					</ul>
@@ -109,13 +109,13 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">ºñÁî´Ï½º</h3>
+					<h3 class="page-title">ë¹„ì¦ˆë‹ˆìŠ¤</h3>
 
 					<div class="col-md-12">
 						<!-- TABLE HOVER -->
 						<div class="panel">
 							<div class="panel-heading">
-								<h3 class="panel-title">±â¾÷ ¹®ÀÇ ³»¿ª</h3>
+								<h3 class="panel-title">ê¸°ì—… ë¬¸ì˜ ë‚´ì—­</h3>
 
 							</div>
 							<div class="panel-body">
@@ -128,10 +128,10 @@
 								<table class="table table-hover" align="left">
 									<thead>
 										<tr>
-											<th>¹øÈ£</th>
-											<th>±â¾÷¸í</th>
+											<th>ë²ˆí˜¸</th>
+											<th>ê¸°ì—…ëª…</th>
 
-											<th>ºñ°í</th>
+											<th>ë¹„ê³ </th>
 										</tr>
 									</thead>
 									<c:foreach var="row" items="">
@@ -160,7 +160,7 @@
 								</table>
 								<!-- 
                               <p class="demo-button" align=right>
-                              <button type="button" class="btn btn-default" submit = "">±â¾÷ µî·Ï</button>
+                              <button type="button" class="btn btn-default" submit = "">ê¸°ì—… ë“±ë¡</button>
 
                            </p> -->
 							</div>

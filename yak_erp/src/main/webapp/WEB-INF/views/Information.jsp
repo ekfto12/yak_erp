@@ -42,17 +42,11 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-<<<<<<< HEAD
-				<a href="index.html"><img src="resources/img/logo-dark.png"
-					alt="Klorofil Logo" class="img-responsive logo"></a>
-=======
-<<<<<<< leejw
-				<a href="index.html"><img src="resources/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
-=======
+
+				
+
 				<a href="/yak_erp/"><img src="resources/img/logo-dark.png"
 					alt="Klorofil Logo" class="img-responsive logo"></a>
->>>>>>> 3a4ce75 Lee Jae Won
->>>>>>> 84fc773a28c4ea89945491dc7bc273d5070e4956
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">
@@ -68,15 +62,12 @@
 								class="btn btn-primary">검색</button></span>
 					</div>
 				</form>
-<<<<<<< leejw
 				<div class="navbar-btn navbar-btn-right">
 					<a class="btn btn-success update-pro"
 						href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro"
 						title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i>
 						<span>UPGRADE TO PRO</span></a>
 				</div>
-=======
->>>>>>> 3a4ce75 Lee Jae Won
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 
@@ -91,76 +82,46 @@
 								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
 								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
-<<<<<<< HEAD
+
 							</ul></li>
-=======
-							</ul>
-						</li>
-<<<<<<< leejw
->>>>>>> 84fc773a28c4ea89945491dc7bc273d5070e4956
+
+						
 						<!-- <li>
 							<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
 						</li> -->
-=======
->>>>>>> 3a4ce75 Lee Jae Won
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
+		
 		<div id="sidebar-nav" class="sidebar">
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class=""><i
-								class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="#subPages" data-toggle="collapse" class="active">
-							<i class="lnr lnr-linearicons"></i> <span>비지니스</span>
-							<i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse in">
+						<li><a href="/yak_erp/" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>비지니스</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
 								<ul class="nav">
-<<<<<<< HEAD
-									<li><a href="page-profile.html" class="active">기업정보조회</a></li>
-=======
-<<<<<<< leejw
-									<li><a href="page-profile.html" class="">기업정보조회</a></li>
-=======
 									<li><a href="/yak_erp/blist" class="active">기업정보조회</a></li>
->>>>>>> 3a4ce75 Lee Jae Won
->>>>>>> 84fc773a28c4ea89945491dc7bc273d5070e4956
-									<li><a href="page-login.html" class="">배너관리</a></li>
+									<li><a href="/yak_erp/Banner" class="">배너관리</a></li>
 									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
 								</ul>
-<<<<<<< HEAD
-							</div></li>
-						<li><a href="charts.html" class=""><i class="lnr lnr-cog"></i>
-=======
-<<<<<<< leejw
 							</div>
 						</li>
-						<li><a href="charts.html" class=""><i class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
+						<li><a href="/yak_erp/dlist" class=""><i class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
 						<li>
 							<a href="#subPagess" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-=======
-							</div></li>
-						<li><a href="/yak_erp/dlist" class=""><i class="lnr lnr-cog"></i>
->>>>>>> 84fc773a28c4ea89945491dc7bc273d5070e4956
-								<span>콘텐츠관리</span></a></li>
-						<li><a href="#subPagess" data-toggle="collapse"
-							class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span>
-								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
-<<<<<<< HEAD
-=======
->>>>>>> 3a4ce75 Lee Jae Won
->>>>>>> 84fc773a28c4ea89945491dc7bc273d5070e4956
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
 									<li><a href="/yak_erp/mlist" class="">회원이력조회</a></li>
 									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
-									<li><a href="page-lockscreen.html" class="">문자발송내역</a></li>
+									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
 								</ul>
-							</div></li>
+							</div>
+						</li>
 					</ul>
 				</nav>
 			</div>

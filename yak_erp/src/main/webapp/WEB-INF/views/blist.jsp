@@ -62,13 +62,16 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="/yak_erp/" class="">
+						<i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>비지니스</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
+							<a href="#subPages" data-toggle="collapse" class="active">
+							<i class="lnr lnr-linearicons"></i> <span>비지니스</span> <i class="icon-submenu lnr lnr-chevron-left">
+							</i></a>
+							<div id="subPages" class="collapse in">
 								<ul class="nav">
-									<li><a href="/yak_erp/blist" class="">기업정보조회</a></li>
-									<li><a href="page-login.html" class="">배너관리</a></li>
+									<li><a href="/yak_erp/blist" class="active">기업정보조회</a></li>
+									<li><a href="/yak_erp/Banner" class="">배너관리</a></li>
 									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
 								</ul>
 							</div>
@@ -80,7 +83,7 @@
 								<ul class="nav">
 									<li><a href="/yak_erp/mlist" class="">회원이력조회</a></li>
 									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
-									<li><a href="page-lockscreen.html" class="">문자발송내역</a></li>
+									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
 								</ul>
 							</div>
 						</li>

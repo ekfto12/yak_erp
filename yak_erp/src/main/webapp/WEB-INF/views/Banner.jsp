@@ -42,7 +42,7 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="index.html"><img src="resources/img/logo-dark.png"
+				<a href="/yak_erp/"><img src="resources/img/logo-dark.png"
 					alt="Klorofil Logo" class="img-responsive logo"></a>
 			</div>
 			<div class="container-fluid">
@@ -93,19 +93,19 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class=""><i
+						<li><a href="/yak_erp/" class=""><i
 								class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li><a href="#subPages" data-toggle="collapse" class="active">
 							<i class="lnr lnr-linearicons"></i> <span>비지니스</span>
 							<i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse in">
 								<ul class="nav">
-									<li><a href="page-profile.html" class="active">기업정보조회</a></li>
-									<li><a href="page-login.html" class="">배너관리</a></li>
-									<li><a href="page-lockscreen.html" class="">문의내역</a></li>
+									<li><a href="/yak_erp/blist" class="">기업정보조회</a></li>
+									<li><a href="/yak_erp/Banner" class="active">배너관리</a></li>
+									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
 								</ul>
 							</div></li>
-						<li><a href="charts.html" class=""><i class="lnr lnr-cog"></i>
+						<li><a href="/yak_erp/dlist" class=""><i class="lnr lnr-cog"></i>
 								<span>콘텐츠관리</span></a></li>
 						<li><a href="#subPagess" data-toggle="collapse"
 							class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span>
@@ -113,8 +113,8 @@
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
 									<li><a href="page-profile.html" class="">회원이력조회</a></li>
-									<li><a href="page-login.html" class="">문의내역</a></li>
-									<li><a href="page-lockscreen.html" class="">문자발송내역</a></li>
+									<li><a href="/yak_erp/Banner" class="">문의내역</a></li>
+									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
 								</ul>
 							</div></li>
 					</ul>
