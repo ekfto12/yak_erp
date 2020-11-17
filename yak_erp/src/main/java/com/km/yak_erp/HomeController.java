@@ -42,6 +42,14 @@ public class HomeController {
     public String mlist() throws Exception {
         return "mlist";
     }
+	@RequestMapping("/b_quesList")
+	public String b_quesList() throws Exception {
+		return "b_quesList";
+	}
+	@RequestMapping("/m_quesList")
+	public String m_quesList() throws Exception {
+		return "m_quesList";
+	}
 
 	@RequestMapping(value = "/Information", method = RequestMethod.GET)
 	public ModelAndView Info(Model model) {
