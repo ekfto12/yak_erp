@@ -42,7 +42,7 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="/yak_erp/"><img src="resources/img/logo-dark.png"
+				<a href=""><img src="resources/img/logo-dark.png"
 					alt="Klorofil Logo" class="img-responsive logo"></a>
 			</div>
 			<div class="container-fluid">
@@ -89,34 +89,32 @@
 		</nav>
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
-		<div id="sidebar-nav" class="sidebar">
+<div id="sidebar-nav" class="sidebar">
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="/yak_erp/" class=""><i
-								class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="#subPages" data-toggle="collapse" class="active">
-							<i class="lnr lnr-linearicons"></i> <span>비지니스</span>
-							<i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse in">
+						<li><a href="" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>비지니스</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/blist" class="">기업정보조회</a></li>
-									<li><a href="/yak_erp/Banner" class="active">배너관리</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
+									<li><a href="/yak_erp/Information" class="">기업정보조회</a></li>
+									<li><a href="page-login.html" class="">배너관리</a></li>
+									<li><a href="page-lockscreen.html" class="">문의내역</a></li>
 								</ul>
-							</div></li>
-						<li><a href="/yak_erp/dlist" class=""><i class="lnr lnr-cog"></i>
-								<span>콘텐츠관리</span></a></li>
-						<li><a href="#subPagess" data-toggle="collapse"
-							class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span>
-								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							</div>
+						</li>
+						<li><a href="dlist" class=""><i class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
+						<li>
+							<a href="#subPagess" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/mlist" class="">회원이력조회</a></li>
-									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
+									<li><a href="mlist" class="">회원이력조회</a></li>
+									<li><a href="page-login.html" class="">문의내역</a></li>
+									<li><a href="page-lockscreen.html" class="">문자발송내역</a></li>
 								</ul>
-							</div></li>
+							</div>
+						</li>
 					</ul>
 				</nav>
 			</div>
@@ -127,7 +125,7 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">배너 관리</h3>
+					<h3 class="page-title">회원 등록</h3>
 
 					<div class="col-md-8"
 						style="margin-left: 150px; margin-right: auto;">
@@ -138,73 +136,68 @@
 
 						<div class="panel panel-info">
 							<div class="panel-heading">
-								<h3 class="panel-title">메인 상단 배너</h3>
+								<h3 class="panel-title">회원 정보 등록</h3>
 							</div>
-							
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-md-8 col-lg-8 " align="center">
-										<img width="80%;" style="margin-bottom: 10px; border-radius:0%" alt="User Picture"
-											src="resources/img/profile-bg.png"
-											class="img-circle img-responsive">
-									</div>
-									<div class="col-md-4 col-lg-4 " align="center">
-										<div class="panel-footer">
+							<div class="panel-footer">
 
-								<span class="pull-right"> <a href="edit.html" style="margin-bottom: 30px; margin-top: 50px;"
+								<span class="pull-right"> <a href="edit.html"
 									data-original-title="Edit this user" data-toggle="tooltip"
 									type="button" class="btn btn-sm btn-warning"><i
-										class="glyphicon glyphicon-edit">배너등록</i></a> <a
+										class="glyphicon glyphicon-edit"></i></a> <a
 									data-original-title="Remove this user" data-toggle="tooltip"
 									type="button" class="btn btn-sm btn-danger"
 									onClick="self.close();"><i
-										class="glyphicon glyphicon-remove">배너삭제</i></a>
+										class="glyphicon glyphicon-remove"></i></a>
 								</span>
 							</div>
-									</div>
+							<div class="panel-body">
+								<div class="row">
+								
+
+									<div class=" col-md- col-lg-12 ">
+										<table class="table table-user-information"style="width:100%;">
+											<tbody>
+												<tr>
+													<td>회원ID:</td>
+													<td><input type="text" class="form-control" placeholder="id..."></td>
+													<td>성별:</td>
+													<td><input type="text" class="form-control" placeholder="number..."></td>
+												</tr>
+												<tr>
+													<td>회원명:</td>
+													<td><input type="text" class="form-control" placeholder="name..."></td>
+													<td>연락처:</td>
+													<td><input type="text" class="form-control" placeholder="day..."></td>
+												</tr>
+
+												<tr>
+												<tr>
+												</tr>
+												<tr>
+													<td>생년월일:</td>
+													<td><input type="text" class="form-control" placeholder="birthday..."></td>
+													<td>비고:</td>
+													<td><input type="text" class="form-control" placeholder="day..."></td>
+												</tr>
+												
 									
+											</tbody>
+										</table>
+
+										<!--   <a href="#" class="btn btn-primary">My Sales Performance</a>
+                  <a href="#" class="btn btn-primary">Team Sales Performance</a>-->
+
+									</div>
 								</div>
 							</div>
 
 
 						</div>
-
-						<div class="panel panel-info">
-							<div class="panel-heading">
-								<h3 class="panel-title">검색결과창 배너</h3>
-							</div>
-							
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-md-8 col-lg-8 " align="center">
-										<img width="80%;" style="margin-bottom: 10px; border-radius:0%" alt="User Picture"
-											src="resources/img/profile-bg.png"
-											class="img-circle img-responsive">
-									</div>
-									<div class="col-md-4 col-lg-4 " align="center">
-										<div class="panel-footer">
-
-								<span class="pull-right"> <a href="edit.html" style="margin-bottom: 30px; margin-top: 50px;"
-									data-original-title="Edit this user" data-toggle="tooltip"
-									type="button" class="btn btn-sm btn-warning"><i
-										class="glyphicon glyphicon-edit">배너등록</i></a> <a
-									data-original-title="Remove this user" data-toggle="tooltip"
-									type="button" class="btn btn-sm btn-danger"
-									onClick="self.close();"><i
-										class="glyphicon glyphicon-remove">배너삭제</i></a>
-								</span>
-							</div>
-									</div>
-									
-								</div>
-							</div>
-
-
-						</div>
-
-
 						<!-- END TABLE HOVER -->
 					</div>
+					
+					
+		
 					
 				</div>
 
@@ -230,8 +223,10 @@
 	<!-- Javascript -->
 	<script src="resources/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="resources/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="resources/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script
+		src="resources/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script
+		src="resources/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 	<script src="resources/vendor/chartist/js/chartist.min.js"></script>
 	<script src="resources/scripts/klorofil-common.js"></script>
 
