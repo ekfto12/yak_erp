@@ -50,4 +50,17 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/Drug_Information", method = RequestMethod.GET)
+	public ModelAndView drinfo(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("Drug_Information");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/Member_Information", method = RequestMethod.GET)
+	public ModelAndView M_info(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("Member_Information");
+		return mav;
+	}
 }
