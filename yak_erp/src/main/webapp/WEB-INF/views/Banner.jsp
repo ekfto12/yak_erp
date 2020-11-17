@@ -112,8 +112,8 @@
 								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
-									<li><a href="page-profile.html" class="">회원이력조회</a></li>
-									<li><a href="/yak_erp/Banner" class="">문의내역</a></li>
+									<li><a href="/yak_erp/mlist" class="">회원이력조회</a></li>
+									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
 									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
 								</ul>
 							</div></li>
