@@ -29,7 +29,7 @@
       <!-- NAVBAR -->
       <nav class="navbar navbar-default navbar-fixed-top">
          <div class="brand">
-            <a href="index.html"><img src="resources/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+            <a href=""><img src="resources/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
          </div>
          <div class="container-fluid">
             <div class="navbar-btn">
@@ -91,7 +91,7 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>비지니스</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
@@ -168,7 +168,7 @@
                               </tbody>
                            </table>
                               <p class="demo-button" align=right>
-                              <button type="button" class="btn btn-default">기업 등록</button>
+                              <button type="button" class="btn btn-default" onclick="location.href='register'">기업 등록</button>
 
                            </p>
                         </div>
