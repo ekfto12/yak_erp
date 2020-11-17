@@ -70,4 +70,11 @@ public class HomeController {
 		mav.setViewName("Banner");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("login");
+		return mav;
+	}
 }
