@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-	<title>Tables | Klorofil - Free Bootstrap Dashboard Template</title>
+	<title>약팔이 | 회원 리스트</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -29,7 +29,7 @@
       <!-- NAVBAR -->
       <nav class="navbar navbar-default navbar-fixed-top">
          <div class="brand">
-            <a href="index.html"><img src="resources/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+            <a href="/yak_erp/"><img src="resources/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
          </div>
          <div class="container-fluid">
             <div class="navbar-btn">
@@ -41,34 +41,8 @@
                   <span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
                </div>
             </form>
-            <div class="navbar-btn navbar-btn-right">
-               <a class="btn btn-success update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-            </div>
             <div id="navbar-menu">
                <ul class="nav navbar-nav navbar-right">
-                  <li class="dropdown">
-                     <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                        <i class="lnr lnr-alarm"></i>
-                        <span class="badge bg-danger">5</span>
-                     </a>
-                     <ul class="dropdown-menu notifications">
-                        <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
-                        <li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
-                        <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
-                        <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
-                        <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
-                        <li><a href="#" class="more">See all notifications</a></li>
-                     </ul>
-                  </li>
-                  <li class="dropdown">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-                     <ul class="dropdown-menu">
-                        <li><a href="#">Basic Use</a></li>
-                        <li><a href="#">Working With Data</a></li>
-                        <li><a href="#">Security</a></li>
-                        <li><a href="#">Troubleshooting</a></li>
-                     </ul>
-                  </li>
                   <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="resources/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                      <ul class="dropdown-menu">
@@ -91,25 +65,25 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="/yak_erp/" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>비지니스</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="blist" class="">기업정보조회</a></li>
-									<li><a href="page-login.html" class="">배너관리</a></li>
-									<li><a href="page-lockscreen.html" class="">문의내역</a></li>
+									<li><a href="/yak_erp/blist" class="">기업정보조회</a></li>
+									<li><a href="#" class="">배너관리</a></li>
+									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
 								</ul>
 							</div>
 						</li>
-						<li><a href="dlist" class=""><i class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
+						<li><a href="/yak_erp/dlist" class=""><i class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
 						<li>
-							<a href="#subPagess" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPagess" class="collapse ">
+							<a href="#subPagess" data-toggle="collapse" class="active"><i class="lnr lnr-file-empty"></i> <span>회원관리</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPagess" class="collapse in">
 								<ul class="nav">
-									<li><a href="mlist" class="">회원이력조회</a></li>
-									<li><a href="page-login.html" class="">문의내역</a></li>
-									<li><a href="page-lockscreen.html" class="">문자발송내역</a></li>
+									<li><a href="/yak_erp/mlist" class="active">회원이력조회</a></li>
+									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
+									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
 								</ul>
 							</div>
 						</li>
@@ -133,17 +107,16 @@
                            
                         </div>
                         <div class="panel-body" >
-                        <div class="input-group">
+                        <div class="input-group" style="width:40%; margin-left:auto; margin-right: 115px;">
                   <input type="text" value="" class="form-control" placeholder="Search dashboard...">
                   <span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
-               </div>
-                           <table class="table table-hover" >
+               </div><br/><br/>
+                           <table class="table table-hover" style="width:80%; text-align:center;">
                               <thead>
                                  <tr>
-                                    <th>번호</th>
-                                    <th>회원명</th>
-                                    
-                                    <th>비고</th>
+                                    <th style="width:10%; text-align:center;">번호</th>
+                                    <th style="width:50%; text-align:center;">회원명</th>
+                                    <th style="width:30%; text-align:center;">비고</th>
                                  </tr>
                               </thead>
                               <tbody>
@@ -166,7 +139,7 @@
                                     <td></td>
                                  </tr>
                               </tbody>
-                           </table>
+                           </table><br/>
                               <p class="demo-button" align=right>
                               <button type="button" class="btn btn-default">회원 등록</button>
 

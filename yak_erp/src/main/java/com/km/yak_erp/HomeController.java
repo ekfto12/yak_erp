@@ -26,7 +26,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(Model model) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home");
+		mav.setViewName("main/home");
 		return mav;
 	}
 	
@@ -42,6 +42,14 @@ public class HomeController {
     public String mlist() throws Exception {
         return "mlist";
     }
+	@RequestMapping("/b_quesList")
+	public String b_quesList() throws Exception {
+		return "b_quesList";
+	}
+	@RequestMapping("/m_quesList")
+	public String m_quesList() throws Exception {
+		return "m_quesList";
+	}
 
 	@RequestMapping(value = "/Information", method = RequestMethod.GET)
 	public ModelAndView Info(Model model) {
@@ -50,4 +58,31 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/Drug_Information", method = RequestMethod.GET)
+	public ModelAndView drinfo(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("Drug_Information");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/Member_Information", method = RequestMethod.GET)
+	public ModelAndView M_info(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("Member_Information");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/Banner", method = RequestMethod.GET)
+	public ModelAndView baner(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("Banner");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("login");
+		return mav;
+	}
 }
