@@ -107,17 +107,16 @@
                            
                         </div>
                         <div class="panel-body" >
-                        <div class="input-group">
+                        <div class="input-group" style="width:40%; margin-left:auto; margin-right: 115px;">
                   <input type="text" value="" class="form-control" placeholder="Search dashboard...">
                   <span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
                </div><br/><br/>
-                           <table class="table table-hover" >
+                           <table class="table table-hover" style="width:80%; text-align:center;">
                               <thead>
                                  <tr>
-                                    <th>번호</th>
-                                    <th>회원명</th>
-                                    
-                                    <th>비고</th>
+                                    <th style="width:10%; text-align:center;">번호</th>
+                                    <th style="width:50%; text-align:center;">회원명</th>
+                                    <th style="width:30%; text-align:center;">비고</th>
                                  </tr>
                               </thead>
                               <tbody>
