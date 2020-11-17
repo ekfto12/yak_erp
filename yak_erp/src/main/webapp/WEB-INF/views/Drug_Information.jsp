@@ -127,7 +127,7 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">기업 정보조회</h3>
+					
 
 					<div class="col-md-12">
 						<!-- TABLE HOVER -->
@@ -153,17 +153,17 @@
 							</div>
 							<div class="panel-body">
 								<div class="row">
-									<div class="col-md-3 col-lg-3 " align="center">
+									<div class="col-md-3 col-lg-2 " align="center">
 										<img width="80%;" style="margin-top: 10px;" alt="User Picture"
 											src="resources/img/default_user.png"
 											class="img-circle img-responsive">
 									</div>
 
-									<div class=" col-md- col-lg-9 ">
+									<div class=" col-md- col-lg-10 ">
 										<table class="table table-user-information"style="width:100%;">
 											<tbody>
 												<tr>
-													<td>약품명:</td>
+													<td style="width:20%">약품명:</td>
 													<td>가나폴로연질캡슐</td>
 												</tr>
 												<tr>
@@ -175,23 +175,23 @@
 												<tr>
 												</tr>
 												<tr>
-													<td>용법/용량:</td>
+													<td style="width:20%">용법/용량:</td>
 													<td>성인 1일 2회, 1회 1캡슐 복용</td>
 												</tr>
 												<tr>
-													<td>주의사항:</td>
+													<td style="width:20%">주의사항:</td>
 													<td>2. 다음 환자에는 투여하지 말 것. 1) 과칼슘혈증 (hypercalciumia : 혈액 중에 칼슘이 과잉으로 존재하는 상태)환자, 유육정용, 신질환 환자 2) 이 약 및 이 약에 포함된 성분에 과민증이 있는 환자 3) 3개월 미만의 영아(젖먹이) 4) 대두유에 과민하거나 알레르기 병력이 있는 환자 5) 콩 또는 땅콩에 과민증이 있는 환자</td>
 												</tr>
 												<tr>
-													<td>효능:</td>
+													<td style="width:20%">효능:</td>
 													<td>1. 다음 경우의 비타민 A, B1, B2, C, D의 보급 - 육체피로, 임신ㆍ수유기, 병중ㆍ병후(병을 앓는 동안이나 회복 후)의 체력 저하 시, 발육기, 노년기 2. 뼈ㆍ이의 발육 불량 3. 구루병의 예방</td>
 												</tr>
 												<tr>
-													<td>성분:</td>
+													<td style="width:20%">성분:</td>
 													<td>Ascorbic Acid　아스코르브산　75mg Cholecalciferoll Oil　콜레칼시페롤유　400IU Nicotinamide　니코틴산아미드　20mg Retinol Palmitate Oil　레티놀팔미테이트유　500IU Riboflavin　리보플라빈　3mg Thiamine Hydrochloride　티아민염산염　2mg</td>
 												</tr>
 												<tr>
-													<td>조회수:</td>
+													<td style="width:20%">조회수:</td>
 													<td>55</td>
 												</tr>
 

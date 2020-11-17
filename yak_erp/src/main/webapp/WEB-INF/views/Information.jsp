@@ -160,8 +160,8 @@
 											class="img-circle img-responsive">
 									</div>
 
-									<div class=" col-md- col-lg-5 ">
-										<table class="table table-user-information">
+									<div class=" col-md- col-lg-6 ">
+										<table class="table table-user-information"style="width:100%;">
 											<tbody>
 												<tr>
 													<td>기업명:</td>
@@ -223,8 +223,8 @@
 											src="resources/img/default_user.png"
 											class="img-circle img-responsive">
 									</div>
-									<div class=" col-md- col-lg-5 ">
-										<table class="table table-user-information">
+									<div class=" col-md- col-lg-6 ">
+										<table class="table table-user-information"style="width:100%;">
 											<tbody>
 												<tr>
 													<td>담당자ID:</td>
@@ -276,7 +276,7 @@
 						</div>
 						<div class="panel-body">
 
-							<table class="table table-hover">
+							<table class="table table-hover"style="width:100%;">
 								<thead>
 									<tr>
 										<th>배너명</th>
@@ -312,7 +312,7 @@
 						</div>
 						<div class="panel-body">
 
-							<table class="table table-hover">
+							<table class="table table-hover"style="width:100%;">
 								<thead>
 									<tr>
 										<th>제목</th>

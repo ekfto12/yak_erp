@@ -63,4 +63,11 @@ public class HomeController {
 		mav.setViewName("Member_Information");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/Banner", method = RequestMethod.GET)
+	public ModelAndView baner(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("Banner");
+		return mav;
+	}
 }
