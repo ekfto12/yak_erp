@@ -119,40 +119,40 @@
 
 							</div>
 							<div class="panel-body">
-								<div class="input-group">
+								<div class="input-group" style="width:40%; margin-left:auto; margin-right: 115px;">
 									<input type="text" value="" class="form-control"
 										placeholder="Search dashboard..."> <span
 										class="input-group-btn"><button type="button"
 											class="btn btn-primary">Go</button></span>
 								</div><br/><br/>
-								<table class="table table-hover" align="left">
+								<table class="table table-hover" style="width:80%; text-align:center;">
 									<thead>
 										<tr>
-											<th>번호</th>
-											<th>기업명</th>
-
-											<th>비고</th>
+											<th style="width:5%; text-align:center;">번호</th>
+											<th style="width:30%; text-align:center;">제목</th>
+											<th style="width:10%; text-align:center;">작성자</th>
+											<th style="width:10%; text-align:center;">문의 날짜</th>
 										</tr>
 									</thead>
 									<c:foreach var="row" items="">
 										<tbody>
 											<tr>
 												<td>1</td>
-												<td>Steve</td>
-
-												<td></td>
+												<td>개발중입니다</td>
+												<td>이종열</td>
+												<td>2020-11-18</td>
 											</tr>
 											<tr>
 												<td>2</td>
-												<td>Simon</td>
-
-												<td></td>
+												<td>개발중입니다</td>
+												<td>이종열</td>
+												<td>2020-11-18</td>
 											</tr>
 											<tr>
 												<td>3</td>
-												<td>Jane</td>
-
-												<td></td>
+												<td>개발중입니다</td>
+												<td>이종열</td>
+												<td>2020-11-18</td>
 											</tr>
 										</tbody>
 									</c:foreach>
