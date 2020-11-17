@@ -7,7 +7,7 @@
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm");
 %>
-
+<!-- LeeJaeWon -->
 <!doctype html>
 <html lang="en">
 
@@ -38,7 +38,7 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="index.html"><img src="resources/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+				<a href="/yak_erp/"><img src="resources/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">
@@ -50,9 +50,6 @@
 						<span class="input-group-btn"><button type="button" class="btn btn-primary">검색</button></span>
 					</div>
 				</form>
-				<div class="navbar-btn navbar-btn-right">
-					<a class="btn btn-success update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-				</div>
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						
@@ -66,9 +63,6 @@
 								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 							</ul>
 						</li>
-						<!-- <li>
-							<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -84,19 +78,27 @@
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>비지니스</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
+<<<<<<< HEAD
 									<li><a href="/yak_erp/Information" class="">기업정보조회</a></li>
+=======
+<<<<<<< leejw
+									<li><a href="blist" class="">기업정보조회</a></li>
+=======
+									<li><a href="/yak_erp/blist" class="">기업정보조회</a></li>
+>>>>>>> 3a4ce75 Lee Jae Won
+>>>>>>> 84fc773a28c4ea89945491dc7bc273d5070e4956
 									<li><a href="page-login.html" class="">배너관리</a></li>
-									<li><a href="page-lockscreen.html" class="">문의내역</a></li>
+									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
 								</ul>
 							</div>
 						</li>
-						<li><a href="dlist" class=""><i class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
+						<li><a href="/yak_erp/dlist" class=""><i class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
 						<li>
 							<a href="#subPagess" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
-									<li><a href="mlist" class="">회원이력조회</a></li>
-									<li><a href="page-login.html" class="">문의내역</a></li>
+									<li><a href="/yak_erp/mlist" class="">회원이력조회</a></li>
+									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
 									<li><a href="page-lockscreen.html" class="">문자발송내역</a></li>
 								</ul>
 							</div>
