@@ -42,9 +42,6 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-
-				
-
 				<a href="/yak_erp/"><img src="resources/img/logo-dark.png"
 					alt="Klorofil Logo" class="img-responsive logo"></a>
 			</div>
@@ -82,10 +79,7 @@
 								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
 								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
-
 							</ul></li>
-
-						
 						<!-- <li>
 							<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
 						</li> -->
@@ -95,33 +89,34 @@
 		</nav>
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
-		
 		<div id="sidebar-nav" class="sidebar">
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="/yak_erp/" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>비지니스</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+						<li><a href="/yak_erp/" class="active"><i
+								class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="#subPages" data-toggle="collapse"
+							class="collapsed"><i class="lnr lnr-linearicons"></i> <span>비지니스</span>
+								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/blist" class="active">기업정보조회</a></li>
+									<li><a href="page-profile.html" class="">기업정보조회</a></li>
 									<li><a href="/yak_erp/Banner" class="">배너관리</a></li>
 									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
 								</ul>
-							</div>
-						</li>
-						<li><a href="/yak_erp/dlist" class=""><i class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
-						<li>
-							<a href="#subPagess" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							</div></li>
+						<li><a href="charts.html" class=""><i class="lnr lnr-cog"></i>
+								<span>콘텐츠관리</span></a></li>
+						<li><a href="#subPagess" data-toggle="collapse"
+							class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span>
+								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/mlist" class="">회원이력조회</a></li>
-									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
+									<li><a href="page-profile.html" class="">회원이력조회</a></li>
+									<li><a href="/yak_erp/Banner" class="">문의내역</a></li>
 									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
 								</ul>
-							</div>
-						</li>
+							</div></li>
 					</ul>
 				</nav>
 			</div>
@@ -132,7 +127,7 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">기업 정보조회</h3>
+					<h3 class="page-title">회원 이력조회</h3>
 
 					<div class="col-md-8"
 						style="margin-left: 150px; margin-right: auto;">
@@ -143,7 +138,7 @@
 
 						<div class="panel panel-info">
 							<div class="panel-heading">
-								<h3 class="panel-title">기업정보</h3>
+								<h3 class="panel-title">회원 상세정보</h3>
 							</div>
 							<div class="panel-footer">
 
@@ -169,29 +164,35 @@
 										<table class="table table-user-information"style="width:100%;">
 											<tbody>
 												<tr>
-													<td>기업명:</td>
-													<td>이종열</td>
+													<td>회원ID:</td>
+													<td>개발중</td>
 												</tr>
 												<tr>
-													<td>대표자명:</td>
-													<td>ㄴㅁㅇㄹ</td>
+													<td>회원명:</td>
+													<td>개발중</td>
 												</tr>
 
 												<tr>
 												<tr>
 												</tr>
 												<tr>
-													<td>기업주소:</td>
-													<td>ㄹㄷㄹㄷ</td>
+													<td>생년월일:</td>
+													<td>개발중</td>
 												</tr>
 												<tr>
-													<td>비고:</td>
-													<td>ㅁㄴㅇㅁㄴ</td>
+													<td>성별:</td>
+													<td>개발중</td>
 
 												</tr>
+												<tr>
+													<td>휴대폰번호:</td>
+													<td>개발중</td>
 
-
-
+												</tr>
+												<tr>
+													<td>가입일:</td>
+													<td>개발중</td>
+												</tr>
 											</tbody>
 										</table>
 
@@ -204,109 +205,9 @@
 
 
 						</div>
-
-						<div class="panel panel-info">
-							<div class="panel-heading">
-								<h3 class="panel-title">담당자 정보</h3>
-							</div>
-							<div class="panel-footer">
-
-								<span class="pull-right"> <a href="edit.html"
-									data-original-title="Edit this user" data-toggle="tooltip"
-									type="button" class="btn btn-sm btn-warning"><i
-										class="glyphicon glyphicon-edit"></i></a> <a
-									data-original-title="Remove this user" data-toggle="tooltip"
-									type="button" class="btn btn-sm btn-danger"
-									onClick="self.close();"><i
-										class="glyphicon glyphicon-remove"></i></a>
-								</span>
-							</div>
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-md-3 col-lg-3 " align="center">
-										<img width="80%;" style="margin-top: 10px;" alt="User Picture"
-											src="resources/img/default_user.png"
-											class="img-circle img-responsive">
-									</div>
-									<div class=" col-md- col-lg-6 ">
-										<table class="table table-user-information"style="width:100%;">
-											<tbody>
-												<tr>
-													<td>담당자ID:</td>
-													<td>이종열</td>
-												</tr>
-												<tr>
-													<td>담당자명:</td>
-													<td>ㄴㅁㅇㄹ</td>
-												</tr>
-
-												<tr>
-												<tr>
-												</tr>
-												<tr>
-													<td>연락처:</td>
-													<td>ㄹㄷㄹㄷ</td>
-												</tr>
-												<tr>
-													<td>이메일:</td>
-													<td>ㅁㄴㅇㅁㄴ</td>
-
-												</tr>
-
-
-
-											</tbody>
-										</table>
-
-										<!--   <a href="#" class="btn btn-primary">My Sales Performance</a>
-                  <a href="#" class="btn btn-primary">Team Sales Performance</a>-->
-
-									</div>
-								</div>
-							</div>
-
-
-						</div>
-
-
 						<!-- END TABLE HOVER -->
 					</div>
 					
-					<div class="col-md-8"
-					style="margin-left: 150px; margin-right: auto;">
-
-					<div class="panel panel-info">
-						<div class="panel-heading">
-								<h3 class="panel-title">배너 거래정보</h3>
-						</div>
-						<div class="panel-body">
-
-							<table class="table table-hover"style="width:100%;">
-								<thead>
-									<tr>
-										<th>배너명</th>
-										<th>등록기간</th>
-										<th>종료기간</th>
-										<th>배너위치</th>
-										<th>클릭수</th>
-										<th>금액</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>개발중</td>
-										<td>개발중</td>
-										<td>개발중</td>
-										<td>개발중</td>
-										<td>개발중</td>
-										<td>개발중</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-
-				</div>
 					
 					<div class="col-md-8"
 					style="margin-left: 150px; margin-right: auto;">
@@ -336,6 +237,33 @@
 
 				</div>
 					
+					<div class="col-md-8"
+					style="margin-left: 150px; margin-right: auto;">
+
+					<div class="panel panel-info">
+						<div class="panel-heading">
+								<h3 class="panel-title">문자 발송내역</h3>
+						</div>
+						<div class="panel-body">
+
+							<table class="table table-hover"style="width:100%;">
+								<thead>
+									<tr>
+										<th>문자 발송내역</th>
+										<th>발송일</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>개발중</td>
+										<td>개발중</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
 					
 				</div>
 
@@ -361,8 +289,10 @@
 	<!-- Javascript -->
 	<script src="resources/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="resources/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="resources/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script
+		src="resources/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script
+		src="resources/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 	<script src="resources/vendor/chartist/js/chartist.min.js"></script>
 	<script src="resources/scripts/klorofil-common.js"></script>
 
