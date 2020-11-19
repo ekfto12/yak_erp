@@ -144,7 +144,7 @@
                               
                            </table><br/>
                               <p class="demo-button" align=right>
-                              <button type="button" class="btn btn-default" submit = "">기업 등록</button>
+                              <button type="button" class="btn btn-default" onclick="location.href='register'">기업 등록</button>
 
                            </p>
                         </div>

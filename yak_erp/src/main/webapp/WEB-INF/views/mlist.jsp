@@ -141,7 +141,7 @@
                               </tbody>
                            </table><br/>
                               <p class="demo-button" align=right>
-                              <button type="button" class="btn btn-default">회원 등록</button>
+                              <button type="button" class="btn btn-default" onclick="location.href='Member_register'">회원 등록</button>
 
                            </p>
                         </div>

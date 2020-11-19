@@ -50,7 +50,14 @@ public class HomeController {
 	public String m_quesList() throws Exception {
 		return "m_quesList";
 	}
-
+	@RequestMapping("/register")
+	public String register() throws Exception {
+		return "register";
+	}
+	@RequestMapping("/Member_register")
+	public String Member_register() throws Exception {
+		return "Member_register";
+	}
 	@RequestMapping(value = "/Information", method = RequestMethod.GET)
 	public ModelAndView Info(Model model) {
 		ModelAndView mav = new ModelAndView();

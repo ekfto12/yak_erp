@@ -7402,4 +7402,8 @@ button.close {
 		display: none !important
 	}
 }
+tr.space1 {
+	border-bottom:10px solid #fff
+}
+
 /*# sourceMappingURL=bootstrap.min.css.map */

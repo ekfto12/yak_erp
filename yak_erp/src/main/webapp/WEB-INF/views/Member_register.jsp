@@ -173,7 +173,7 @@
 												<tr>
 												<tr>
 												</tr>
-												<tr>
+												<tr margin-top="10px";>
 													<td>생년월일:</td>
 													<td><input type="text" class="form-control" placeholder="birthday..."></td>
 													<td>비고:</td>

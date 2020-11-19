@@ -335,7 +335,40 @@
 					</div>
 
 				</div>
-					
+					<div class="col-md-8"
+					style="margin-left: 150px; margin-right: auto;">
+
+					<div class="panel panel-info">
+						<div class="panel-heading">
+								<h3 class="panel-title">비고</h3>
+						</div>
+						<div class="panel-body">
+
+							<table class="table table-hover"style="width:100%;">
+								<thead>
+									<tr>
+										<th>내용</th>
+										<th>날짜</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>개발중</td>
+										<td style="width:30%">2020-11-11</td>
+									</tr>
+									<tr class="space1">
+									<td></td><td></td>
+									</tr>
+									<tr>
+										<td colspan="2"><input type="text" height:50px; class="form-control" placeholder="내용" ></td>
+										
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
 					
 				</div>
 
