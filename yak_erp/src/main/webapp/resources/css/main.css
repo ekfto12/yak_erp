@@ -477,12 +477,8 @@ ul.list-justify > li {
 .fancy-checkbox {
   display: block;
   font-weight: normal; }
-  .fancy-checkbox input[type="checkbox"] {
-    display: none; }
-    .fancy-checkbox input[type="checkbox"] + span {
-      display: inline-block;
-      vertical-align: middle;
-      *vertical-align: auto;
+    .fancy-checkbox input[type="checkbox"] {
+      display: inline-block !important;
       *zoom: 1;
       *display: inline;
       cursor: pointer;
