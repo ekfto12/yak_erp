@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!doctype html>
 <html lang="en">
@@ -24,7 +25,7 @@
 <!-- ICONS -->
 <link rel="apple-touch-icon" sizes="76x76" href="resources/img/apple-icon.png">
 <link rel="icon" type="image/png" sizes="96x96" href="resources/img/favicon.png">
-
+<script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 
 <body>
@@ -133,95 +134,97 @@
 
 
 
-						<script type="text/javascript">
-							$(document).ready(
-									function() {
-										$("a[name='file-delete']").on("click",
-												function(e) {
-													e.preventDefault();
-													deleteFile($(this));
-												});
-									})
 
-							function addFile() {
-								var str = "<div class='file-group'><input type='file' name='file'><a href='#this' name='file-delete'>삭제</a></div>";
-								$("#file-list").append(str);
-								$("a[name='file-delete']").on("click",
-										function(e) {
-											e.preventDefault();
-											deleteFile($(this));
-										});
-							}
 
-							function deleteFile(obj) {
-								obj.parent().remove();
-							}
-						</script>
 
-				
 
 						<div class="panel panel-info">
 							<div class="panel-heading">
-								<h3 class="panel-title">메인 상단 배너</h3>
+								<h3 class="panel-title">메인 상단 배너 등록</h3>
 							</div>
 
 							<div class="panel-body">
 								<div class="row">
-									<div class="col-md-8 col-lg-8 " align="center">
-									<c:forEach items="${map.list}" var="row">
-							
-                                <img width="80%;" style="margin-bottom: 10px; border-radius: 0%" alt="User Picture" src="resources${row.img_dirr}" class="img-circle img-responsive">
-                        </c:forEach>
-										
-									</div>
-									<div class="col-md-4 col-lg-4 " align="center">
-									
-										<div class="panel-footer">
-										
-											<span class="pull-right">
-												
-												<a href="/yak_erp/banner_main" style="margin-bottom: 30px; margin-top: 50px;" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
-													<i class="glyphicon glyphicon-edit">배너등록</i>
-												</a> <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" onClick="self.close();">
-													<i class="glyphicon glyphicon-remove">배너삭제</i>
-												</a>
-											</span>
-										</div>
-									</div>
 
+									<form class="form-auth-small" action="bannerin" method="post" enctype="multipart/form-data">
+
+										<div class="form-group">
+											<p style="padding-left: 10px">배너명</p>
+											<input type="text" class="form-control" name="ban_name" id ="ban_name"size="10px" placeholder="" maxlength="15" />
+
+										</div>
+										<div class="form-group">
+											<p style="padding-left: 10px">기업명</p>
+											<input type="text" class="form-control" name="company_name" id="company_name"size="10px" placeholder="" />
+
+										</div>
+
+										<div class="form-group">
+											<p style="padding-left: 10px">배너 등록일</p>
+											<input class="form-control" type="date" name="ban_start" id="ban_start" placeholder="생년월일" />
+
+										</div>
+										<div class="form-group">
+											<p style="padding-left: 10px">배너 종료일</p>
+											<input class="form-control" type="date" name="ban_exit" id="ban_exit"placeholder="생년월일" />
+
+
+										</div>
+
+										<div class="form-group">
+											<p style="padding-left: 10px">금액</p>
+											<input type="text" class="form-control" name="price" id="price"size="10px" placeholder="" />
+
+										</div>
+
+										<div class="form-group">
+											<p style="padding-left: 10px">이미지 경로</p>
+											<input type="text" class="form-control" size="10px" placeholder="" />
+
+										</div>
+										<div class="panel-footer">
+
+											
+											<div class="inputArea">
+												<label for="gdsImg">배너</label>
+												<input type="file" id="gdsImg" name="file" />
+												<div class="select_img">
+													<img src="" />
+												</div>
+
+												<script>
+													$("#gdsImg")
+															.change(
+																	function() {
+																		if (this.files
+																				&& this.files[0]) {
+																			var reader = new FileReader;
+																			reader.onload = function(
+																					data) {
+																				$(
+																						".select_img img")
+																						.attr(
+																								"src",
+																								data.target.result)
+																						.width(
+																								500);
+																			}
+																			reader
+																					.readAsDataURL(this.files[0]);
+																		}
+																	});
+												</script>
+												<%=request.getRealPath("/") %>
+											</div>
+										</div>
+										<button type="submit" class="btn btn-primary btn-lg btn-block">등록하기</button>
+									</form>
 								</div>
 							</div>
 
 
 						</div>
 
-						<div class="panel panel-info">
-							<div class="panel-heading">
-								<h3 class="panel-title">검색결과창 배너</h3>
-							</div>
-
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-md-8 col-lg-8 " align="center">
-										<img width="80%;" style="margin-bottom: 10px; border-radius: 0%" alt="User Picture" src="resources/img/profile-bg.png" class="img-circle img-responsive">
-									</div>
-									<div class="col-md-4 col-lg-4 " align="center">
-										<div class="panel-footer">
-
-											<span class="pull-right"> <a href="edit.html" style="margin-bottom: 30px; margin-top: 50px;" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
-													<i class="glyphicon glyphicon-edit">배너등록</i>
-												</a> <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" onClick="self.close();">
-													<i class="glyphicon glyphicon-remove">배너삭제</i>
-												</a>
-											</span>
-										</div>
-									</div>
-
-								</div>
-							</div>
-
-
-						</div>
 
 
 						<!-- END TABLE HOVER -->

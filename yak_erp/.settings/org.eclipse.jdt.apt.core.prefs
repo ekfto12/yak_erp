@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=branch 'master' of https\://github.com/ekfto12/yak_erp.git
@@ -5,3 +6,12 @@ eclipse.preferences.version=1
 org.eclipse.jdt.apt.aptEnabled=true
 org.eclipse.jdt.apt.genSrcDir=target\\generated-sources\\annotations
 org.eclipse.jdt.apt.genTestSrcDir=target\\generated-test-sources\\test-annotations
+=======
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://github.com/ekfto12/yak_erp.git
+eclipse.preferences.version=1
+org.eclipse.jdt.apt.aptEnabled=true
+org.eclipse.jdt.apt.genSrcDir=target\\generated-sources\\annotations
+org.eclipse.jdt.apt.genTestSrcDir=target\\generated-test-sources\\test-annotations
+>>>>>>> e62cc783d3a0364890832f17388b1ffdd8a2bd41

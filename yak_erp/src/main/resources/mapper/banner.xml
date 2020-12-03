@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banner">
+	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 
+		있습니다. -->
+
+
+	<!-- 배너 등록 -->
+	<insert id="bannerIn">
+		insert into banner (ban_name, company_name, ban_start, ban_exit, price,
+		img_dir,
+		ban_num, img_dirr)
+		values (#{ban_name}, #{company_name}, #{ban_start}, #{ban_exit},
+		#{price}, #{img_dir},
+		ban_num.nextval, #{img_dirr})
+	</insert>
+
+
+	 <select id="bannerSearch" resultType="com.km.yak_erp.vo.Banner">
+        <![CDATA[
+          SELECT
+              IMG_DIRR
+          FROM
+              BANNER
+          WHERE
+              STATE = 'y'      
+      ]]>
+    </select>
+
+</mapper>
