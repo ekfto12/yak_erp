@@ -140,7 +140,7 @@
 
 						<div class="panel panel-info">
 							<div class="panel-heading">
-								<h3 class="panel-title">메인 상단 배너 등록</h3>
+								<h3 class="panel-title">검색 결과 배너 등록</h3>
 							</div>
 
 							<div class="panel-body">
@@ -151,8 +151,7 @@
 										<div class="form-group">
 											<p style="padding-left: 10px">배너명</p>
 											<input type="text" class="form-control" name="ban_name" id ="ban_name"size="10px" placeholder="" maxlength="15" />
-											<input type="hidden" id="state" class="form-control" name="state" value="main" />
-
+											<input type="hidden" id="state" class="form-control" name="state" value="search" />
 										</div>
 										<div class="form-group">
 											<p style="padding-left: 10px">기업명</p>

@@ -23,7 +23,7 @@
 	<!-- 업로드 패스 설정 -->
 	<beans:bean class="java.lang.String" id="uploadPath">
 		<beans:constructor-arg
-			value="C:\Users\ekfto\apache-tomcat-9.0.29\wtpwebapps\yak_erp\resources" />
+			value="C:\Users\ekfto\resources" />
 	</beans:bean>
 
 	<!-- 일반 파일 업로드 경로 -->

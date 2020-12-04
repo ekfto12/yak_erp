@@ -23,4 +23,9 @@ public class banner_service_impl implements banner_service{
 	public List<Banner> search() throws Exception{
 		return bannerDAO.bannerSearch();
 	}
+	
+	@Override
+	public void bannerDel(Banner vo) throws Exception{
+		bannerDAO.bannerDel(vo);
+	}
 }

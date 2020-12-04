@@ -15,10 +15,16 @@ public class banner_dao {
 	private SqlSessionTemplate sqlSession;
 	
 	public void bannerIn(Banner vo) throws Exception{
+		sqlSession.update("banner.bannerClear", vo);
 		sqlSession.insert("banner.bannerIn", vo);
 	}
 	
 	public List<Banner> bannerSearch() throws Exception{
 		return sqlSession.selectList("banner.bannerSearch");
 	}
+	
+	public void bannerDel(Banner vo) throws Exception{
+		sqlSession.update("banner.bannerClear", vo);
+	}
+	
 }

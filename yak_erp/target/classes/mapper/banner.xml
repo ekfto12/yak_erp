@@ -10,22 +10,35 @@
 	<insert id="bannerIn">
 		insert into banner (ban_name, company_name, ban_start, ban_exit, price,
 		img_dir,
-		ban_num, img_dirr)
+		ban_num, img_dirr, state)
 		values (#{ban_name}, #{company_name}, #{ban_start}, #{ban_exit},
 		#{price}, #{img_dir},
-		ban_num.nextval, #{img_dirr})
+		ban_num.nextval, #{img_dirr}, #{state})
 	</insert>
+	
 
-
+	<update id="bannerClear">
+		
+          UPDATE 
+              banner
+          SET
+              state = ''
+          WHERE
+              state = #{state} 
+     
+	</update>
+	
 	 <select id="bannerSearch" resultType="com.km.yak_erp.vo.Banner">
         <![CDATA[
           SELECT
-              IMG_DIRR
+              *
           FROM
               BANNER
           WHERE
-              STATE = 'y'      
+              STATE = 'main' or STATE = 'search'
       ]]>
     </select>
+    
+    
 
 </mapper>

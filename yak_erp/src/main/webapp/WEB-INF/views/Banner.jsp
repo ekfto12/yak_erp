@@ -168,9 +168,15 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-8 col-lg-8 " align="center">
-									<c:forEach items="${map.list}" var="row">
-							
-                                <img width="80%;" style="margin-bottom: 10px; border-radius: 0%" alt="User Picture" src="resources${row.img_dirr}" class="img-circle img-responsive">
+									<c:forEach items="${map.list}" var="row" varStatus="status">
+									
+									<c:if test="${status.last}">
+                               <h3>등록된 배너가 없습니다</h3>
+                        			</c:if>
+									<c:if test="${row.state eq 'main'}">
+                                <img width="80%;" style="margin-bottom: 10px; border-radius: 0%" alt="User Picture" src="/picture${row.img_dirr}" class="img-circle img-responsive">
+                        			</c:if>
+                        			
                         </c:forEach>
 										
 									</div>
@@ -182,7 +188,7 @@
 												
 												<a href="/yak_erp/banner_main" style="margin-bottom: 30px; margin-top: 50px;" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
 													<i class="glyphicon glyphicon-edit">배너등록</i>
-												</a> <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" onClick="self.close();">
+												</a> <a href="/yak_erp/bannerdel?state=main" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">
 													<i class="glyphicon glyphicon-remove">배너삭제</i>
 												</a>
 											</span>
@@ -203,14 +209,18 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-8 col-lg-8 " align="center">
-										<img width="80%;" style="margin-bottom: 10px; border-radius: 0%" alt="User Picture" src="resources/img/profile-bg.png" class="img-circle img-responsive">
+									<c:forEach items="${map.list}" var="row">
+									<c:if test="${row.state eq 'search'}">
+										<img width="80%;" style="margin-bottom: 10px; border-radius: 0%" alt="User Picture" src="/picture${row.img_dirr}" class="img-circle img-responsive">
+										</c:if>
+                       				 </c:forEach>
 									</div>
 									<div class="col-md-4 col-lg-4 " align="center">
 										<div class="panel-footer">
 
-											<span class="pull-right"> <a href="edit.html" style="margin-bottom: 30px; margin-top: 50px;" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
+											<span class="pull-right"> <a href="/yak_erp/banner_search" style="margin-bottom: 30px; margin-top: 50px;" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
 													<i class="glyphicon glyphicon-edit">배너등록</i>
-												</a> <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" onClick="self.close();">
+												</a> <a href="/yak_erp/bannerdel?state=search" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">
 													<i class="glyphicon glyphicon-remove">배너삭제</i>
 												</a>
 											</span>

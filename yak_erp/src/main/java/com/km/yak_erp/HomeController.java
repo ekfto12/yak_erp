@@ -74,7 +74,12 @@ public class HomeController {
 		return mav;
 	}
 	
-
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public ModelAndView search_(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("search");
+		return mav;
+	}
 	
 	
 }

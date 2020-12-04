@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,7 +42,7 @@ public class banner_controller {
 	    map.put("list", list);
 	    mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
 	    mav.setViewName("Banner");
-	    System.out.println(list);
+	    
 		return mav;
 	}
 	
@@ -53,8 +54,38 @@ public class banner_controller {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/banner_search", method = RequestMethod.GET)
+	public ModelAndView banerrr(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("banner_search");
+		return mav;
+	}
 	
-	
+	 @RequestMapping(value="/bannerdel", method=RequestMethod.GET)
+	public String bannerdel(Banner vo, HttpServletResponse response) throws Exception{
+		 response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter(); 
+			out.println("<script>");
+			List<Banner> list = bann_service.search();
+			
+		 if(list.isEmpty()) {
+			 out.println("alert('삭제를 실패했습니다.');");
+				out.println("history.go(-1);"); 
+				out.println("</script>");
+				out.close(); 
+		 }
+		 else {
+			 bann_service.bannerDel(vo);
+			 
+				out.println("alert('삭제 되었습니다.');");
+				out.println("location.href='/yak_erp/Banner';"); 
+				out.println("</script>");
+				out.close(); 
+		 }
+		 
+			return null; 
+	 }
+	 
 	 @RequestMapping(value="/bannerin", method=RequestMethod.POST)
 	 public String bannerIn(Banner vo, MultipartFile file) throws Exception{
 		 String imgUploadPath = uploadPath + File.separator + "imgUpload";
