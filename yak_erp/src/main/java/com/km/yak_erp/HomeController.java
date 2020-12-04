@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.km.yak_erp.util.login_command;
+
 /**
  * Handles requests for the application home page.
  */
@@ -79,11 +81,7 @@ public class HomeController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/Banner", method = RequestMethod.GET)
-	public ModelAndView baner(Model model) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("Banner");
-		return mav;
-	}
+
+	
 	
 }
