@@ -97,7 +97,7 @@
       <div class="main">
          <!-- MAIN CONTENT -->
          <div class="main-content">
-            <div class="container-fluid">
+            <div class="container-fluid" style="font-size:20px;">
                <h3 class="page-title">통합 검색 > ${searchKeyword}</h3>
 
                   <div class="col-md-12">
@@ -105,42 +105,59 @@
                      <div class="panel" >
                         <div class="panel-heading">
                            <h3 class="panel-title" style="color:black">기업 리스트</h3>
-                           
                         </div>
                         <div class="panel-body" >
                         
-                        <c:if test="${!empty boardResult}">
-                           <a href="">${memberList.MEMBER_ID}</a>
-                           <br/>
+                        <c:if test="${!empty business}">
+                        <c:forEach var = "business" items="${business}">
+                       	<li>
+                       	  <a href="">${business.company_name}</a>
+                           <br>
+                           <br>
+                           <c:if test="${business.c_comment!=null}">
+                        	<ul>&nbsp;${business.c_comment}</ul> 
+                     	   </c:if>
+                     	   <c:if test="${business.c_comment==null}">
+                        	<ul>소개가 없는 기업입니다.</ul> 
+                     	   </c:if>
+                     	   </li>
+                           </c:forEach>
+                           
                               <p class="demo-button" align=right>
                               <button type="button" class="btn btn-default">더보기</button>
 
                            </p>
                            </c:if> 
-                           <c:if test="${empty boardResult}">
+                           <c:if test="${empty business}">
                   			<h3 style="color:gray">기업 리스트 검색결과가 존재 하지 않습니다.</h3>
                				</c:if> 
                         </div>
-                        
+                        <hr id="study">
                         
                         <div class="panel-heading">
                            <h3 class="panel-title" style="color:black">배너</h3>
                            
                         </div>
                         <div class="panel-body" >
-                        <c:if test="${!empty boardResult}">
-                        <a href="">${memberList.MEMBER_ID}</a>
-                           <br/>
-                              <p class="demo-button" align=right>
-                              <button type="button" class="btn btn-default">회원 등록</button>
+                        <c:if test="${!empty banner}">
+                        <c:forEach var = "banner" items="${banner}">
+                        <li>
+                        <img width="10%;" style="display:inline; margin-bottom: 10px; border-radius: 0%" alt="User Picture" src="/picture${banner.img_dirr}" class="img-circle img-responsive">
+                       	 <a href="">${banner.ban_name}</a> / ${banner.company_name}
+                           <br>
+                              </li>
+                           </c:forEach>
+                           <p class="demo-button" align=right>
+                              <button type="button" class="btn btn-default">더보기</button>
 
                            </p>
                            </c:if> 
-                           <c:if test="${empty boardResult}">
+                           
+                           <c:if test="${empty banner}">
                   			<h3 style="color:gray">배너 검색결과가 존재 하지 않습니다.</h3>
                				</c:if> 
                         </div>
-                        
+                        <hr id="study">
                         
                         <div class="panel-heading">
                            <h3 class="panel-title">콘텐츠</h3>
@@ -149,6 +166,7 @@
                         <div class="panel-body" >
                         <c:if test="${!empty boardResult}">
                         <a href="">${memberList.MEMBER_ID}</a>
+                        
                            <br/>
                               <p class="demo-button" align=right>
                               <button type="button" class="btn btn-default">회원 등록</button>
@@ -159,6 +177,7 @@
                   			<h3 style="color:gray">배너 검색결과가 존재 하지 않습니다.</h3>
                				</c:if> 
                         </div>
+                        <hr id="study">
                         
                         <div class="panel-heading">
                            <h3 class="panel-title">회원리스트</h3>
@@ -167,7 +186,9 @@
                         <div class="panel-body" >
                         <c:if test="${!empty boardResult}">
                         <a href="">${memberList.MEMBER_ID}</a>
-                           <br/>
+                        <br>
+                        
+                          
                               <p class="demo-button" align=right>
                               <button type="button" class="btn btn-default">회원 등록</button>
 
@@ -237,7 +258,7 @@
 </p>
          </div>
       </footer>
-   </div>
+
    <!-- END WRAPPER -->
    <!-- Javascript -->
    <script src="resources/vendor/jquery/jquery.min.js"></script>

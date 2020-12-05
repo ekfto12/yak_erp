@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
@@ -60,6 +61,32 @@ public class banner_controller {
 		mav.setViewName("banner_search");
 		return mav;
 	}
+	
+	
+	@RequestMapping(value = "/banner_edit", method = RequestMethod.GET)
+	public ModelAndView banerup(String name, ModelAndView mv, HttpServletResponse response, 
+			HttpServletRequest request) throws Exception{
+
+		Banner list = bann_service.bannerGet(name);
+		if(list == null) {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('실패');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+		}else {
+			mv.addObject("banner", list); // 맵에 저장된 데이터를 mav에 저장
+			mv.setViewName("banner_edit");
+		}
+		
+		
+	    
+		return mv;
+	}
+	
+	
 	
 	 @RequestMapping(value="/bannerdel", method=RequestMethod.GET)
 	public String bannerdel(Banner vo, HttpServletResponse response) throws Exception{

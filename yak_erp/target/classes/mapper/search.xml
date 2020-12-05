@@ -1,1 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="search"> 
+<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
+
+		
+		
+    <select id="searchBanner" resultType="com.km.yak_erp.vo.Banner" parameterType="String">
+        <![CDATA[
+      select * from 
+         (select rownum r, b.* from
+            ( select BAN_NAME,COMPANY_NAME,PRICE,BAN_NUM,IMG_DIRR from  Banner where (BAN_NAME  like '%' ||  #{keyword} || '%' 
+               or COMPANY_NAME like '%' ||  #{keyword} || '%' or PRICE like '%' ||  #{keyword} || '%') order by BAN_NUM desc)b
+          )
+          where r < 6  order by r asc
+   ]]>       
+    </select>
+    
+    <select id="searchBusiness" resultType="com.km.yak_erp.vo.Business" parameterType="String">
+        <![CDATA[
+      select * from 
+         (select rownum r, b.* from
+            ( select COMPANY_NAME,C_COMMENT from  BUISNESS where (COMPANY_NAME  like '%' ||  #{keyword} || '%' 
+               or C_COMMENT like '%' ||  #{keyword} || '%') order by COMPANY_NAME desc)b
+          )
+          where r < 6  order by r asc
+   ]]>       
+    </select>
+    
+    <select id="selectById" resultType="com.km.yak_erp.vo.Member">
+        <![CDATA[
+          SELECT
+              *
+          FROM
+              MEMBER
+          WHERE
+              MEMBER_ID = #{id}       
+      ]]>
+    </select>
+    
+    
+</mapper>

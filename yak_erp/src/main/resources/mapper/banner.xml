@@ -4,8 +4,14 @@
 <mapper namespace="banner">
 	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 
 		있습니다. -->
-
-
+	
+	<update id="bannerUp">
+		update banner set ban_name = #{ban_name}, company_name = #{company_name},
+		ban_start = #{ban_start}, ban_exit = #{ban_exit}, price = #{price}
+		where ban_name = #{ban_name}
+	</update>
+	
+	
 	<!-- 배너 등록 -->
 	<insert id="bannerIn">
 		insert into banner (ban_name, company_name, ban_start, ban_exit, price,
@@ -40,5 +46,15 @@
     </select>
     
     
+    <select id="bannerGet" resultType="com.km.yak_erp.vo.Banner">
+       
+          select
+              *
+          from
+              banner
+          WHERE
+              ban_name = #{ban_name}
+      
+    </select>
 
 </mapper>

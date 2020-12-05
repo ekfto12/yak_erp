@@ -74,12 +74,11 @@ public class HomeController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public ModelAndView search_(Model model) {
+	@RequestMapping(value = "/banner_info", method = RequestMethod.GET)
+	public ModelAndView b_info(Model model) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("search");
+		mav.setViewName("banner_info");
 		return mav;
 	}
-	
 	
 }

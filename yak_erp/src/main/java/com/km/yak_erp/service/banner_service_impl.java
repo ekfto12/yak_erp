@@ -28,4 +28,9 @@ public class banner_service_impl implements banner_service{
 	public void bannerDel(Banner vo) throws Exception{
 		bannerDAO.bannerDel(vo);
 	}
+	
+	@Override
+	public Banner bannerGet(String name) throws Exception{
+		return bannerDAO.bannerGet(name);
+	}
 }

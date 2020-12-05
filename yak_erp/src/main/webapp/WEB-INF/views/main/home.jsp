@@ -50,10 +50,10 @@
 				<div class="navbar-btn">
 					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
 				</div>
-				<form class="navbar-form navbar-left">
+				<form class="navbar-form navbar-left" action ="/yak_erp/search" method ="get">
 					<div class="input-group">
-						<input type="text" value="" class="form-control" placeholder="검색할 내용을 입력해주세요">
-						<span class="input-group-btn"><button type="button" class="btn btn-primary">검색</button></span>
+						<input type="text" name="search" class="form-control" placeholder="검색할 내용을 입력해주세요">
+						<span class="input-group-btn"><button type="submit" class="btn btn-primary">검색</button></span>
 					</div>
 				</form>
 				<div id="navbar-menu">
