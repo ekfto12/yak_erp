@@ -101,7 +101,7 @@
 								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/blist" class="">기업정보조회</a></li>
+									<li><a href="/yak_erp/blistpage?num=1" class="">기업정보조회</a></li>
 									<li><a href="/yak_erp/Banner" class="">배너관리</a></li>
 									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
 								</ul>

@@ -31,11 +31,8 @@ public class HomeController {
 		mav.setViewName("main/home");
 		return mav;
 	}
-	
-	@RequestMapping("/blist")
-    public String blist() throws Exception {
-        return "blist";
-    }
+
+
 	@RequestMapping("/dlist")
     public String dlist() throws Exception {
         return "dlist";

@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 
 <head>
-<title>약팔이 | 기업 문의 내역</title>
+<title>약팔이 | 기업 리스트</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -75,27 +76,28 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="/yak_erp/" class=""><i
-								class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="#subPages" data-toggle="collapse"
-							class="collapsed"><i class="lnr lnr-linearicons"></i> <span>비지니스</span>
-								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
+						<li><a href="/yak_erp/" class=""> <i class="lnr lnr-home"></i>
+								<span>Dashboard</span></a></li>
+						<li><a href="#subPages" data-toggle="collapse" class="active">
+								<i class="lnr lnr-linearicons"></i> <span>비지니스</span> <i
+								class="icon-submenu lnr lnr-chevron-left"> </i>
+						</a>
+							<div id="subPages" class="collapse in">
 								<ul class="nav">
-									<li><a href="/yak_erp/blistpage?num=1" class="">기업정보조회</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">배너관리</a></li>
+									<li><a href="/yak_erp/blistpage?num=1" class="active">기업정보조회</a></li>
+									<li><a href="/yak_erp/Banner" class="">배너관리</a></li>
 									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
 								</ul>
 							</div></li>
 						<li><a href="/yak_erp/dlist" class=""><i
 								class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
 						<li><a href="#subPagess" data-toggle="collapse"
-							class="active"><i class="lnr lnr-file-empty"></i> <span>회원관리</span>
+							class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span>
 								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPagess" class="collapse in">
+							<div id="subPagess" class="collapse ">
 								<ul class="nav">
 									<li><a href="/yak_erp/mlist" class="">회원이력조회</a></li>
-									<li><a href="/yak_erp/m_quesList" class="active">문의내역</a></li>
+									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
 									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
 								</ul>
 							</div></li>
@@ -115,54 +117,55 @@
 						<!-- TABLE HOVER -->
 						<div class="panel">
 							<div class="panel-heading">
-								<h3 class="panel-title">회원(일반) 문의 내역</h3>
+								<h3 class="panel-title">기업 리스트</h3>
 
 							</div>
 							<div class="panel-body">
-								<div class="input-group" style="width:40%; margin-left:auto; margin-right: 115px;">
+								<div class="input-group"
+									style="width: 40%; margin-left: auto; margin-right: 115px;">
 									<input type="text" value="" class="form-control"
 										placeholder="Search dashboard..."> <span
 										class="input-group-btn"><button type="button"
 											class="btn btn-primary">Go</button></span>
-								</div><br/><br/>
-								<table class="table table-hover" style="width:80%; text-align:center;">
+								</div>
+								<br />
+								<br />
+								<table class="table table-hover"
+									style="width: 80%; text-align: center;">
 									<thead>
 										<tr>
-											<th style="width:5%; text-align:center;">번호</th>
-											<th style="width:30%; text-align:center;">제목</th>
-											<th style="width:10%; text-align:center;">작성자</th>
-											<th style="width:10%; text-align:center;">문의 날짜</th>
+											<th style="width: 10%; text-align: center;">번호</th>
+											<th style="width: 50%; text-align: center;">기업명</th>
+											<th style="width: 50%; text-align: center;">비고</th>
 										</tr>
 									</thead>
-									<c:foreach var="row" items="">
+									<c:forEach items="${list}" var="list">
 										<tbody>
 											<tr>
-												<td>1</td>
-												<td>개발중입니다</td>
-												<td>이종열</td>
-												<td>2020-11-18</td>
+												<td>${list.bno}</td>
+												<td>${list.company_name}</td>
+												<td>${list.owner_name}</td>
+
+												<td></td>
 											</tr>
-											<tr>
-												<td>2</td>
-												<td>개발중입니다</td>
-												<td>이종열</td>
-												<td>2020-11-18</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>개발중입니다</td>
-												<td>이종열</td>
-												<td>2020-11-18</td>
-											</tr>
+
 										</tbody>
-									</c:foreach>
+									</c:forEach>
 
 								</table>
-								<!-- 
-                              <p class="demo-button" align=right>
-                              <button type="button" class="btn btn-default" submit = "">기업 등록</button>
+								<br />
+								<p class="demo-button" align=right>
+									<button type="button" class="btn btn-default"
+										onclick="location.href='register'">기업 등록</button>
 
-                           </p> -->
+								</p>
+								<div>
+									<c:forEach begin="1" end="${pageNum}" var="num">
+										<span> <a href="/yak_erp/blistpage?num=1page?num=${num}">${num}</a>
+										</span>
+									</c:forEach>
+								</div>
+
 							</div>
 						</div>
 						<!-- END TABLE HOVER -->
