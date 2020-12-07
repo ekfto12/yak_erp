@@ -30,7 +30,12 @@ public class banner_service_impl implements banner_service{
 	}
 	
 	@Override
-	public Banner bannerGet(String name) throws Exception{
-		return bannerDAO.bannerGet(name);
+	public Banner bannerGet(int ban_num) throws Exception{
+		return bannerDAO.bannerGet(ban_num);
+	}
+	
+	@Override
+	public int bannerEdit(Banner vo) throws Exception{
+		return bannerDAO.bannerUp(vo);
 	}
 }

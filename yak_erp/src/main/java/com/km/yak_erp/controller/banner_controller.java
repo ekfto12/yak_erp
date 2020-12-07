@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.km.yak_erp.service.banner_service;
 import com.km.yak_erp.service.member_service;
@@ -62,12 +63,52 @@ public class banner_controller {
 		return mav;
 	}
 	
+	@RequestMapping(value="/bannerup", method=RequestMethod.POST)
+	 public String bannerUpdate(Banner vo, RedirectAttributes redirect, ModelAndView mv, HttpServletResponse response, HttpServletRequest request) throws Exception{
+		
+		int result = bann_service.bannerEdit(vo);
+		System.out.println(result);
+		 if (result == 0) { 
+			 response.setContentType("text/html;charset=utf-8");
+			 PrintWriter out = response.getWriter();
+			 out.println("<script>");
+			 out.println("alert('수정 실패');");
+			 out.println("history.go(-1);");
+			 out.println("</script>");
+			 out.close();
+		 }
+		 System.out.println(vo.getBan_num());
+		 redirect.addAttribute("ban_num", vo.getBan_num());
+		 
+		 return "redirect:/banner_view";
+	 }
+	
+	
+	@RequestMapping(value = "/banner_view", method = RequestMethod.GET)
+	public ModelAndView bannerView(int ban_num, ModelAndView mv, HttpServletResponse response, 
+			HttpServletRequest request) throws Exception{
+		Banner banner = bann_service.bannerGet(ban_num);
+		
+		if (banner == null) {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('삭제 또는 없는 게시물입니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+		} else {
+			mv.setViewName("banner_view");
+			mv.addObject("banner", banner);
+		}
+		return mv;
+	}
 	
 	@RequestMapping(value = "/banner_edit", method = RequestMethod.GET)
-	public ModelAndView banerup(String name, ModelAndView mv, HttpServletResponse response, 
+	public ModelAndView banerup(int ban_num, ModelAndView mv, HttpServletResponse response, 
 			HttpServletRequest request) throws Exception{
 
-		Banner list = bann_service.bannerGet(name);
+		Banner list = bann_service.bannerGet(ban_num);
 		if(list == null) {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();

@@ -27,12 +27,14 @@ public class banner_dao {
 		sqlSession.update("banner.bannerClear", vo);
 	}
 	
-	public void bannerUp(Banner vo) throws Exception{
-		sqlSession.update("banner.bannerUp", vo);
+	public int bannerUp(Banner vo) throws Exception{
+		return sqlSession.update("banner.bannerUp", vo);
 	}
 	
-	public Banner bannerGet(String name) throws Exception{
-		return sqlSession.selectOne("banner.bannerGet", name);
+	public Banner bannerGet(int ban_num) throws Exception{
+		return sqlSession.selectOne("banner.bannerGet", ban_num);
 	}
+	
+	
 	
 }

@@ -8,5 +8,6 @@ public interface banner_service {
 	void banner(Banner vo) throws Exception;
 	List<Banner> search() throws Exception;
 	void bannerDel(Banner vo) throws Exception;
-	Banner bannerGet(String name) throws Exception;
+	Banner bannerGet(int ban_num) throws Exception;
+	public int bannerEdit(Banner vo) throws Exception;
 }

@@ -53,7 +53,7 @@
           from
               banner
           WHERE
-              ban_name = #{ban_name}
+              ban_num = #{ban_num}
       
     </select>
 

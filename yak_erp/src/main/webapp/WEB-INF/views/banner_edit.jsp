@@ -146,12 +146,12 @@
 							<div class="panel-body">
 								<div class="row">
 
-									<form class="form-auth-small" action="bannerin" method="post" enctype="multipart/form-data">
+									<form class="form-auth-small" action="bannerup" method="post" enctype="multipart/form-data">
 
 										<div class="form-group">
 											<p style="padding-left: 10px">배너명</p>
 											<input type="text" class="form-control" value="${banner.ban_name}" name="ban_name" id ="ban_name"size="10px" placeholder="" maxlength="15" />
-											
+											<input type="hidden" value="${banner.ban_num}" name="ban_num" id ="ban_num" />
 
 										</div>
 										<div class="form-group">

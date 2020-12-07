@@ -141,15 +141,21 @@
                         <div class="panel-body" >
                         <c:if test="${!empty banner}">
                         <c:forEach var = "banner" items="${banner}">
+                        <ul>
                         <li>
                         <img width="10%;" style="display:inline; margin-bottom: 10px; border-radius: 0%" alt="User Picture" src="/picture${banner.img_dirr}" class="img-circle img-responsive">
-                       	 <a href="">${banner.ban_name}</a> / ${banner.company_name}
+                       	 <br> 
+                       	  배너명 : 
+                       	 <a href="/yak_erp/banner_view?ban_num=${banner.ban_num}">${banner.ban_name} </a>  
+                       	<br> 
+                       	 회사명 :  ${banner.company_name}
                            <br>
                               </li>
+                             </ul>
+                             
                            </c:forEach>
                            <p class="demo-button" align=right>
                               <button type="button" class="btn btn-default">더보기</button>
-
                            </p>
                            </c:if> 
                            

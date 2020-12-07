@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%
@@ -116,21 +117,30 @@
 					<!-- OVERVIEW -->
 					<div class="panel panel-headline">
 						<div class="panel-heading">
-							<h3 class="panel-title">일별 간단 통계</h3>
+							<h3 class="panel-title">간단 통계</h3>
 							<p class="panel-subtitle"><%= sf.format(nowTime) %>기준입니다.</p>
 						</div>
 						<div class="panel-body">
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="metric">
 										<span class="icon"><i class="fa fa-eye"></i></span>
 										<p>
-											<span class="number">274,678</span>
-											<span class="title">방문자 수</span>
+											<span class="number">${live.visit_today}명</span>
+											<span class="title">실시간 접속자 수</span>
 										</p>
 									</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
+									<div class="metric">
+										<span class="icon"><i class="fa fa-download"></i></span>
+										<p>
+											<span class="number">${today.visit_total}명</span>
+											<span class="title">일일 방문자 수</span>
+										</p>
+									</div>
+								</div>
+								<div class="col-md-4">
 									<div class="metric">
 										<span class="icon"><i class="fa fa-bar-chart"></i></span>
 										<p>
@@ -146,16 +156,20 @@
 								</div>
 								<div class="col-md-3">
 									<div class="weekly-summary text-right">
-										<span class="number">2,315</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i> 12%</span>
-										<span class="info-label">Total Sales</span>
+										<span class="number">${banner_monthly}건</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i> 12%</span>
+										<span class="info-label">이번달 배너 등록량</span>
 									</div>
 									<div class="weekly-summary text-right">
-										<span class="number">$5,758</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i> 23%</span>
-										<span class="info-label">Monthly Income</span>
+										<span class="number">
+										₩<fmt:formatNumber type="number" value="${banner_monthly_total}"/>원
+										</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i> 23%</span>
+										<span class="info-label">이번달 배너 거래 금액</span>
 									</div>
 									<div class="weekly-summary text-right">
-										<span class="number">$65,938</span> <span class="percentage"><i class="fa fa-caret-down text-danger"></i> 8%</span>
-										<span class="info-label">Total Income</span>
+										<span class="number">
+										₩<fmt:formatNumber type="number" value="${banner_total}"/>원
+										</span> <span class="percentage"><i class="fa fa-caret-down text-danger"></i> 8%</span>
+										<span class="info-label">총 배너 거래 금액</span>
 									</div>
 								</div>
 							</div>
@@ -263,11 +277,16 @@
 
 		// headline charts
 		data = {
-			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				
+			labels: [<c:forEach var = "statistics" items="${statistics}"> 
+			'${statistics.visit_timee}', </c:forEach>],
 			series: [
-				[23, 29, 24, 40, 25, 24, 35],
+				[
+					<c:forEach var = "statistics" items="${statistics}"> 
+					${statistics.visit_count},</c:forEach>],
 				[14, 25, 18, 34, 29, 38, 44],
 			]
+				
 		};
 
 		options = {

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %> 
 <!doctype html>
 <html lang="en">
 
@@ -25,7 +26,10 @@
 <link rel="icon" type="image/png" sizes="96x96" href="picture/img/favicon.png">
 
 <style>
-
+.profile-header .profile-main {
+    
+    background-image: url("/picture${banner.img_dirr}");
+     }
 </style>
 
 </head>
@@ -134,8 +138,8 @@
 								<!-- PROFILE HEADER -->
 								<div class="profile-header">
 									<div class="overlay"></div>
-									<div class="profile-main">
-										<img src="assets/img/user-medium.png" class="img-circle" alt="Avatar">
+									<div class="profile-main" >
+										<img src="/picture${banner.img_dirr}" class="img-circle" alt="Avatar">
 										<h3 class="name">Samuel Gold</h3>
 										<span class="online-status status-available">Available</span>
 									</div>
@@ -148,7 +152,7 @@
 												15 <span>상태</span>
 											</div>
 											<div class="col-md-4 stat-item">
-												2174 <span>금액</span>
+												${banner.price} <span>금액</span>
 											</div>
 										</div>
 									</div>
@@ -159,11 +163,20 @@
 									<div class="profile-info">
 										<h4 class="heading">Basic Info</h4>
 										<ul class="list-unstyled list-justify">
-											<li>배너명 <span>24 Aug, 2016</span></li>
-											<li>기업명 <span>(124) 823409234</span></li>
-											<li>배너 등록일 <span>samuel@mydomain.com</span></li>
-											<li>배너종료일 <span><a href="https://www.themeineed.com">www.themeineed.com</a></span></li>
-											<li>배너 위치 <span>samuel@mydomain.com</span></li>
+											<li>배너명 <span>${banner.ban_name}</span></li>
+											<li>기업명 <span>${banner.company_name}</span></li>
+											<li>배너 등록일 <span>${banner.ban_start}</span></li>
+											<li>배너종료일 <span>${banner.ban_exit}</span></li>
+											
+											<li>배너 위치 
+											<c:if test="${banner.state == null}">
+											<span>기간 종료</span>
+											</c:if>
+											<c:if test="${banner.state != null}">
+											<span>${banner.state}</span>
+											</c:if>
+											</li>
+											
 										</ul>
 									</div>
 									
@@ -171,7 +184,7 @@
 										<h4 class="heading">코멘트</h4>
 										<p>Interactively fashion excellent information after distinctive outsourcing.</p>
 									</div>
-									<div class="text-center"><a href="/yak_erp/banner_edit?name=${banner.banner_name}" class="btn btn-primary">수정</a></div>
+									<div class="text-center"><a href="/yak_erp/banner_edit?ban_num=${banner.ban_num}" class="btn btn-primary">수정</a></div>
 								</div>
 								<!-- END PROFILE DETAIL -->
 							</div>
@@ -186,13 +199,8 @@
 			<!-- END MAIN CONTENT -->
 		</div>
 		<!-- END MAIN -->
-		<div class="clearfix"></div>
-		<footer>
-			<div class="container-fluid">
-				<p class="copyright">Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-</p>
-			</div>
-		</footer>
+		
+		
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
