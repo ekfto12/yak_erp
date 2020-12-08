@@ -99,10 +99,10 @@
 								<ul class="nav">
 									<li><a href="/yak_erp/blistpage?num=1" class="">기업정보조회</a></li>
 									<li><a href="/yak_erp/Banner" class="active">배너관리</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
+									<li><a href="/yak_erp/b_quesList?num=1" class="">문의내역</a></li>
 								</ul>
 							</div></li>
-						<li><a href="/yak_erp/dlist" class="">
+						<li><a href="/yak_erp/dlistpage?num=1" class="">
 								<i class="lnr lnr-cog"></i> <span>콘텐츠관리</span>
 							</a></li>
 						<li><a href="#subPagess" data-toggle="collapse" class="collapsed">
@@ -110,8 +110,8 @@
 							</a>
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/mlist" class="">회원이력조회</a></li>
-									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
+									<li><a href="/yak_erp/mlistpage?num=1" class="">회원이력조회</a></li>
+									<li><a href="/yak_erp/m_quesList?num=1" class="">문의내역</a></li>
 									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
 								</ul>
 							</div></li>

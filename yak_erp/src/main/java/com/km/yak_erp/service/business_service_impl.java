@@ -27,7 +27,12 @@ public class business_service_impl implements business_service{
 	}
 	
 	@Override
-	public List<Business> listPage(int displayPost, int postNum) throws Exception {
-	 return businessDAO.listPage(displayPost, postNum);
+	public List<Business> listPage(int displayPost, int postNum ,String keyword) throws Exception {
+	 return businessDAO.listPage(displayPost, postNum ,keyword);
 	}
+	
+	public int searchcount(String keyword) throws Exception{
+		return businessDAO.searchcount(keyword);
+	}
+	
 }

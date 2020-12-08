@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bqlist">
+
+
+	<select id="listPage" parameterType="hashMap"
+		resultType="com.km.yak_erp.vo.Bqlist">
+		<![CDATA[
+ select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+  bqno, company_name, subject,question,ques_date
+ from business_question
+ WHERE company_name LIKE '%' ||  #{keyword} || '%'
+ ) A
+ where rownum <=#{displayPost}+#{postNum})
+ where rnum > #{displayPost}	
+		]]>
+
+
+	</select>
+
+	<!-- 게시물 총 갯수 -->
+
+	<select id="count" resultType="int">
+	<![CDATA[
+ 		select count(bqno) from business_question
+ 		]]>
+	</select>
+	
+	<select id="searchcount" parameterType="hashMap"
+		resultType="int">
+	<![CDATA[
+ 		select count(bqno) from business_question
+ 		WHERE company_name LIKE '%' ||  #{keyword} || '%'
+ 		]]>
+
+
+	</select>
+
+</mapper>

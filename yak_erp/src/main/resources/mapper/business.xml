@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="business">
-	<select id = "list" resultType="com.km.yak_erp.vo.Business">
+	<select id="list" resultType="com.km.yak_erp.vo.Business">
 		<![CDATA[
 		  SELECT
 		  	  BNO,
@@ -13,24 +13,58 @@
           
 		]]>
 	</select>
-	
-	<select id = "listPage" parameterType="hashMap" resultType="com.km.yak_erp.vo.Business">
+
+	<select id="listPage1" parameterType="hashMap"
+		resultType="com.km.yak_erp.vo.Business">
 		<![CDATA[
- select
-  bno, company_name, owner_name
- from business
-  where bno between #{displayPost} and #{postNum}	
+ select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+  bno, company_name, owner_name,company_addr,c_comment,manager_id,manager_name,contact,email
+ from business	
+ WHERE company_name LIKE '%'||#{keyword}||'%'
+ ) A
+ where rownum <=#{displayPost}+#{postNum})
+ where rnum > #{displayPost}	
 		]]>
-		
-		
 	</select>
-	
+
+
+	<select id="listPage" parameterType="hashMap"
+		resultType="com.km.yak_erp.vo.Business">
+		<![CDATA[
+ select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+  bno, company_name, owner_name,company_addr,c_comment,manager_id,manager_name,contact,email
+ from business
+WHERE company_name LIKE '%'|| #{keyword}||'%'
+ ) A
+ where rownum <=#{displayPost}+#{postNum})
+ where rnum > #{displayPost}	
+		]]>
+
+
+	</select>
+
 	<!-- 게시물 총 갯수 -->
-	
+
 	<select id="count" resultType="int">
 	<![CDATA[
- 		select count(BNO) from business
+ 		select count(bno) from business
  		]]>
-</select>	
 
+
+	</select>
+
+	<select id="searchcount" parameterType="hashMap" resultType="int">
+	<![CDATA[
+ 		select count(bno) from business
+ 		WHERE company_name LIKE '%' ||  #{keyword} || '%'
+ 		]]>
+
+
+	</select>
 </mapper>

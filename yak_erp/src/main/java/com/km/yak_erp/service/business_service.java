@@ -11,5 +11,7 @@ public interface business_service {
 	
 	public int count() throws Exception;
 	
-	public List<Business> listPage(int displayPost, int postNum) throws Exception;	
+	public List<Business> listPage(int displayPost, int postNum,String keyword) throws Exception;	
+	
+	public int searchcount(String keyword) throws Exception;
 }

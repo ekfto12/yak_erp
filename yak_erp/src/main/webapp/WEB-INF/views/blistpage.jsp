@@ -50,7 +50,7 @@
 					<div class="input-group">
 						<input type="text" value="" class="form-control"
 							placeholder="search.."> <span class="input-group-btn"><button
-								type="button" class="btn btn-primary">Go</button></span>
+								type="button" class="btn btn-primary">검색</button></span>
 					</div>
 				</form>
 				<div id="navbar-menu">
@@ -86,19 +86,19 @@
 								<ul class="nav">
 									<li><a href="/yak_erp/blistpage?num=1" class="active">기업정보조회</a></li>
 									<li><a href="/yak_erp/Banner" class="">배너관리</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
+									<li><a href="/yak_erp/b_quesList?num=1" class="">문의내역</a></li>
 								</ul>
 							</div></li>
-						<li><a href="/yak_erp/dlist" class=""><i
+						<li><a href="/yak_erp/dlistpage?num=1" class=""><i
 								class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
 						<li><a href="#subPagess" data-toggle="collapse"
 							class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span>
 								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/mlist" class="">회원이력조회</a></li>
-									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
+									<li><a href="/yak_erp/mlistpage?num=1" class="">회원이력조회</a></li>
+									<li><a href="/yak_erp/m_quesList?num=1" class="">문의내역</a></li>
+									<li><a href="/yak_erp/b_quesList?num=1" class="">문자발송내역</a></li>
 								</ul>
 							</div></li>
 					</ul>
@@ -123,28 +123,27 @@
 							<div class="panel-body">
 								<div class="input-group"
 									style="width: 40%; margin-left: auto; margin-right: 115px;">
-									<input type="text" value="" class="form-control"
-										placeholder="Search dashboard..."> <span
-										class="input-group-btn"><button type="button"
-											class="btn btn-primary">Go</button></span>
+									<input type="text" value="" class="form-control" name="keyword"
+										placeholder="Search..."> <span class="input-group-btn"><button
+											type="button" class="btn btn-primary" id="searchBtn">검색</button></span>
 								</div>
-								<br />
-								<br />
+								<br /> <br />
 								<table class="table table-hover"
 									style="width: 80%; text-align: center;">
 									<thead>
 										<tr>
 											<th style="width: 10%; text-align: center;">번호</th>
+											<th style="width: 50%; text-align: center;">담당자ID</th>
 											<th style="width: 50%; text-align: center;">기업명</th>
-											<th style="width: 50%; text-align: center;">비고</th>
 										</tr>
 									</thead>
 									<c:forEach items="${list}" var="list">
 										<tbody>
 											<tr>
-												<td>${list.bno}</td>
+												<td>${list.rnum}</td>
+												<td style="cursor: pointer;"
+													onClick="location.href='Information'">${list.manager_id}</td>
 												<td>${list.company_name}</td>
-												<td>${list.owner_name}</td>
 
 												<td></td>
 											</tr>
@@ -156,14 +155,35 @@
 								<br />
 								<p class="demo-button" align=right>
 									<button type="button" class="btn btn-default"
-										onclick="location.href='register'">기업 등록</button>
+										onclick="lo	cation.href='register'">기업 등록</button>
 
 								</p>
-								<div>
-									<c:forEach begin="1" end="${pageNum}" var="num">
-										<span> <a href="/yak_erp/blistpage?num=1page?num=${num}">${num}</a>
+								<div align="center">
+									<c:if test="${page.prev}">
+										<span>[ <a
+											href="/yak_erp/blistpage?num=${page.startPageNum - 1}${page.searchTypeKeyword}">이전</a>
+											]
+										</span>
+									</c:if>
+
+									<c:forEach begin="${page.startPageNum}"
+										end="${page.endPageNum}" var="num">
+										<span> <c:if test="${select != num}">
+												<a
+													href="/yak_erp/blistpage?num=${num}${page.searchTypeKeyword}">${num}</a>
+											</c:if> <c:if test="${select == num}">
+												<b>${num}</b>
+											</c:if>
+
 										</span>
 									</c:forEach>
+
+									<c:if test="${page.next}">
+										<span>[ <a
+											href="/yak_erp/blistpage?num=${page.endPageNum+1}${page.searchTypeKeyword}">다음</a>
+											]
+										</span>
+									</c:if>
 								</div>
 
 							</div>
@@ -194,6 +214,16 @@
 	<script
 		src="resources/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="resources/scripts/klorofil-common.js"></script>
+
+	<script>
+		document.getElementById("searchBtn").onclick = function() {
+
+			let keyword = document.getElementsByName("keyword")[0].value;
+			location.href = "/yak_erp/blistpage?num=1" + "&keyword=" + keyword;
+
+			console.log(keyword)
+		};
+	</script>
 </body>
 
 </html>

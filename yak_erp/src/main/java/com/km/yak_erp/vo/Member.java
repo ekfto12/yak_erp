@@ -14,7 +14,21 @@ public class Member {
 	private String MEMBER_EMAIL;
 	private String MEMBER_COMMENT;
 	private Date MEMBER_JOIN_DATE;
+	private int mno;
+	private String rnum;
 	
+	public String getRnum() {
+		return rnum;
+	}
+	public void setRnum(String rnum) {
+		this.rnum = rnum;
+	}
+	public int getMno() {
+		return mno;
+	}
+	public void setMno(int mno) {
+		this.mno = mno;
+	}
 	public String getMEMBER_COMMENT() {
 		return MEMBER_COMMENT;
 	}

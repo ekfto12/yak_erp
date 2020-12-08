@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="drug">
+
+	
+	<select id = "listPage" parameterType="hashMap" resultType="com.km.yak_erp.vo.Drug">
+		<![CDATA[
+
+	 select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+  dno, DRUG_NAME, ENG_NAME,INGREDIENT,EFFECTS,D_USAGE,PRECAUTINS,SIDE_EFFECTS,COUNT,D_ROUTE,D_SHAPE,D_CATEGORY,D_COMPANY,D_CODE,D_HIT
+ from drug
+ WHERE DRUG_NAME LIKE '%'||#{keyword}||'%'
+ ) A
+ where rownum <=#{displayPost}+#{postNum})
+ where rnum > #{displayPost}		
+		
+		
+		
+		]]>
+		
+		
+	</select>
+	
+	<!-- 게시물 총 갯수 -->
+	
+	<select id="count" resultType="int">
+	<![CDATA[
+ 		select count(dno) from drug
+ 		]]>
+</select>	
+	<select id="searchcount" parameterType="hashMap" resultType="int">
+	<![CDATA[
+ 		select count(dno) from drug
+ 		WHERE drug_name LIKE '%' ||  #{keyword} || '%'
+ 		]]>
+ 		</select>
+
+</mapper>

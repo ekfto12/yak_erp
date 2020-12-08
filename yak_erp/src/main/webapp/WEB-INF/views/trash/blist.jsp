@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 
 <head>
-	<title>¾àÆÈÀÌ | ÀÇ¾àÇ° ¸®½ºÆ®</title>
+	<title>ì•½íŒ”ì´ | ê¸°ì—… ë¦¬ìŠ¤íŠ¸</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -52,9 +53,6 @@
                         <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                      </ul>
                   </li>
-                  <!-- <li>
-                     <a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-                  </li> -->
                </ul>
             </div>
          </div>
@@ -65,25 +63,28 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="/yak_erp/" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="/yak_erp/" class="">
+						<i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>ºñÁö´Ï½º</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
+							<a href="#subPages" data-toggle="collapse" class="active">
+							<i class="lnr lnr-linearicons"></i> <span>ë¹„ì§€ë‹ˆìŠ¤</span> <i class="icon-submenu lnr lnr-chevron-left">
+							</i></a>
+							<div id="subPages" class="collapse in">
 								<ul class="nav">
-									<li><a href="/yak_erp/blistpage?num=1" class="">±â¾÷Á¤º¸Á¶È¸</a></li>
-									<li><a href="/yak_erp/Banner" class="">¹è³Ê°ü¸®</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">¹®ÀÇ³»¿ª</a></li>
+									<li><a href="/yak_erp/blist" class="active">ê¸°ì—…ì •ë³´ì¡°íšŒ</a></li>
+									<li><a href="/yak_erp/Banner" class="">ë°°ë„ˆê´€ë¦¬</a></li>
+									<li><a href="/yak_erp/b_quesList" class="">ë¬¸ì˜ë‚´ì—­</a></li>
 								</ul>
 							</div>
 						</li>
-						<li><a href="/yak_erp/dlist" class="active"><i class="lnr lnr-cog"></i> <span>ÄÜÅÙÃ÷°ü¸®</span></a></li>
+						<li><a href="/yak_erp/dlist" class=""><i class="lnr lnr-cog"></i> <span>ì½˜í…ì¸ ê´€ë¦¬</span></a></li>
 						<li>
-							<a href="#subPagess" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>È¸¿ø°ü¸®</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPagess" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>íšŒì›ê´€ë¦¬</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/mlist" class="">È¸¿øÀÌ·ÂÁ¶È¸</a></li>
-									<li><a href="/yak_erp/m_quesList" class="">¹®ÀÇ³»¿ª</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">¹®ÀÚ¹ß¼Û³»¿ª</a></li>
+									<li><a href="/yak_erp/mlistpage?num=1" class="">íšŒì›ì´ë ¥ì¡°íšŒ</a></li>
+									<li><a href="/yak_erp/m_quesList" class="">ë¬¸ì˜ë‚´ì—­</a></li>
+									<li><a href="/yak_erp/b_quesList" class="">ë¬¸ìžë°œì†¡ë‚´ì—­</a></li>
 								</ul>
 							</div>
 						</li>
@@ -97,13 +98,13 @@
          <!-- MAIN CONTENT -->
          <div class="main-content">
             <div class="container-fluid">
-               <h3 class="page-title">ÄÜÅÙÃ÷ °ü¸®</h3>
+               <h3 class="page-title">ë¹„ì¦ˆë‹ˆìŠ¤</h3>
 
                   <div class="col-md-12">
                      <!-- TABLE HOVER -->
                      <div class="panel" >
                         <div class="panel-heading">
-                           <h3 class="panel-title">ÀÇ¾àÇ° ¸®½ºÆ®</h3>
+                           <h3 class="panel-title">ê¸°ì—… ë¦¬ìŠ¤íŠ¸</h3>
                            
                         </div>
                         <div class="panel-body" >
@@ -114,34 +115,27 @@
                            <table class="table table-hover" style="width:80%; text-align:center;">
                               <thead>
                                  <tr>
-                                    <th style="width:10%; text-align:center;">¹øÈ£</th>
-                                    <th style="width:50%; text-align:center;">¾àÇ°¸í</th>
-                                    <th style="width:30%; text-align:center;">ºñ°í</th>
+                                    <th style="width:10%; text-align:center;">ë²ˆí˜¸</th>
+                                    <th style="width:50%; text-align:center;">ê¸°ì—…ëª…</th>
+                                    <th style="width:50%; text-align:center;">ë¹„ê³ </th>
                                  </tr>
                               </thead>
-                              <tbody>
+                              <c:forEach items ="${list}" var="list">
+                              	<tbody>
                                  <tr>
-                                    <td>1</td>
-                                    <td>Steve</td>
+                                 	<td>${list.bno}</td>
+                                    <td>${list.company_name}</td>
+                                    <td>${list.owner_name}</td>
                                     
                                     <td></td>
                                  </tr>
-                                 <tr>
-                                    <td>2</td>
-                                    <td>Simon</td>
-                                    
-                                    <td></td>
-                                 </tr>
-                                 <tr>
-                                    <td>3</td>
-                                    <td>Jane</td>
-                                    
-                                    <td></td>
-                                 </tr>
-                              </tbody>
+                                
+                              	</tbody>
+                              </c:forEach>
+                              
                            </table><br/>
                               <p class="demo-button" align=right>
-                              <button type="button" class="btn btn-default">¾àÇ° µî·Ï</button>
+                              <button type="button" class="btn btn-default" onclick="location.href='register'">ê¸°ì—… ë“±ë¡</button>
 
                            </p>
                         </div>

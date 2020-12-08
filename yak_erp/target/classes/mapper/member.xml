@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="member"> 
-<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
+<mapper namespace="member">
+	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 
+		있습니다. -->
 
-		
-		
-    <select id="selectByEmail" resultType="com.km.yak_erp.vo.Member">
+
+
+	<select id="selectByEmail" resultType="com.km.yak_erp.vo.Member">
         <![CDATA[
           SELECT
               EMAIL,
@@ -16,9 +17,9 @@
           WHERE
               MEMBER_EMAIL = #{email}       
       ]]>
-    </select>
-    
-    <select id="selectById" resultType="com.km.yak_erp.vo.Member">
+	</select>
+
+	<select id="selectById" resultType="com.km.yak_erp.vo.Member">
         <![CDATA[
           SELECT
               *
@@ -27,7 +28,37 @@
           WHERE
               MEMBER_ID = #{id}       
       ]]>
-    </select>
-    
-    
+	</select>
+	<select id="listPage" parameterType="hashMap"
+		resultType="com.km.yak_erp.vo.Member">
+		<![CDATA[
+  
+  	 select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+ mno, member_id,member_name, member_pw,member_born_date,member_gender,member_email,member_comment,member_join_date	,authority,enabled
+ from member
+ WHERE member_name LIKE '%'||#{keyword}||'%'
+ ) A
+ where rownum <=#{displayPost}+#{postNum})
+ where rnum > #{displayPost}
+  
+		]]>
+	</select>
+
+	<select id="count" resultType="int">
+	<![CDATA[
+ 		select count(MNO) from member
+ 		]]>
+	</select>
+	
+		<select id="searchcount" parameterType="hashMap" resultType="int">
+	<![CDATA[
+ 		select count(mno) from member
+ 		WHERE member_name LIKE '%' ||  #{keyword} || '%'
+ 		]]>
+
+
+	</select>
 </mapper>

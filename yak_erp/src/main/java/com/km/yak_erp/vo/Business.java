@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class Business {
 	public int bno;
+	private String rnum;
 	public String company_name;
 	public String owner_name;
 	private String company_addr;

@@ -1,5 +1,7 @@
 package com.km.yak_erp.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import com.km.yak_erp.dao.member_dao;
 import com.km.yak_erp.exception.IdPasswordNotMatchingException;
 import com.km.yak_erp.util.AuthInfo;
 import com.km.yak_erp.util.login_command;
+
 import com.km.yak_erp.vo.Member;
 
 
@@ -33,4 +36,18 @@ public class member_service_impl implements member_service{
 	   public Member selectMember (String id) {
 	      return memberDAO.selectById(id);
 	   }
+	
+	@Override
+	public int count() throws Exception {
+	 return memberDAO.count();
+	}
+	
+	@Override
+	public List<Member> listPage(int displayPost, int postNum,String keyword) throws Exception {
+	 return memberDAO.listPage(displayPost, postNum,keyword);
+	}
+	
+	public int searchcount(String keyword) throws Exception{
+		return memberDAO.searchcount(keyword);
+	}
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.km.yak_erp.vo.Banner;
 import com.km.yak_erp.vo.Business;
@@ -26,12 +27,12 @@ public class business_dao {
 	}
 	*/
 	
-	public List<Business> listPage(int displayPost, int postNum) throws Exception{
-		 HashMap<String, Integer> data = new HashMap<String,Integer>();
+	public List<Business> listPage(int displayPost, int postNum,String keyword) throws Exception{
+		 HashMap<String, Object> data = new HashMap<String, Object>();
 		  
 		 data.put("displayPost", displayPost);
 		 data.put("postNum", postNum);
-		  
+		 data.put("keyword", keyword);
 		 return sqlSession.selectList("business.listPage",data);
 	
 	}
@@ -39,4 +40,14 @@ public class business_dao {
 	public int count() throws Exception{
 		return sqlSession.selectOne("business.count"); 
 	}
+	
+	public int searchcount(String keyword) throws Exception {
+			 
+			 HashMap<String, Object> data = new HashMap<String, Object>();
+			 
+			 data.put("keyword", keyword);
+			 
+			 return sqlSession.selectOne("business.searchcount", data); 
+	}
+		
 }
