@@ -16,6 +16,7 @@
 	<title>약팔이  | 관리자페이지</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<jsp:include page="../reference/header.jsp" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!-- VENDOR CSS -->
 	<link rel="stylesheet" href="resources/vendor/bootstrap/css/bootstrap.min.css">
@@ -34,6 +35,7 @@
 </head>
 
 <body>
+
 <c:if test="${empty authInfo.id}">
 <script>
 	alert("로그인 하신 후에 사용해주세요");
@@ -43,64 +45,32 @@
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="brand">
-				<a href="/yak_erp/"><img src="resources/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
-			</div>
-			<div class="container-fluid">
-				<div class="navbar-btn">
-					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-				</div>
-				<form class="navbar-form navbar-left" action ="/yak_erp/search" method ="get">
-					<div class="input-group">
-						<input type="text" name="search" class="form-control" placeholder="검색할 내용을 입력해주세요">
-						<span class="input-group-btn"><button type="submit" class="btn btn-primary">검색</button></span>
-					</div>
-				</form>
-				<div id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right">
-						
-						
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="resources/img/user.png" class="img-circle" alt="Avatar">
-							<c:if test="${not empty authInfo.id}">  
-							 <span>${authInfo.name}님</span>
-							 </c:if>
-							 <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-								<li><a href="/yak_erp/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+		
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
       <div id="sidebar-nav" class="sidebar">
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="/yak_erp/" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="/yak_erp/" class="active"><i class="lnr lnr-home"></i> <span>ERP 프로젝트</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>비지니스</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/blist" class="">기업정보조회</a></li>
-									<li><a href="/yak_erp/Banner" class="">배너관리</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">문의내역</a></li>
+									<li><a href="/yak_erp/blistpage?num=1" class="">기업정보조회</a></li>
+									<li><a href="/yak_erp/Banner?num=1" class="">배너관리</a></li>
+									<li><a href="/yak_erp/b_quesList?num=1" class="">문의내역</a></li>
 								</ul>
 							</div>
 						</li>
-						<li><a href="/yak_erp/dlist" class=""><i class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
+						<li><a href="/yak_erp/dlistpage?num=1" class=""><i class="lnr lnr-cog"></i> <span>콘텐츠관리</span></a></li>
 						<li>
 							<a href="#subPagess" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>회원관리</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse ">
 								<ul class="nav">
-									<li><a href="/yak_erp/mlist" class="">회원이력조회</a></li>
-									<li><a href="/yak_erp/m_quesList" class="">문의내역</a></li>
-									<li><a href="/yak_erp/b_quesList" class="">문자발송내역</a></li>
+									<li><a href="/yak_erp/mlistpage?num=1" class="">회원이력조회</a></li>
+									<li><a href="/yak_erp/m_quesList?num=1" class="">문의내역</a></li>
+									<li><a href="/yak_erp/smsList" class="">문자발송내역</a></li>
 								</ul>
 							</div>
 						</li>
@@ -144,8 +114,8 @@
 									<div class="metric">
 										<span class="icon"><i class="fa fa-bar-chart"></i></span>
 										<p>
-											<span class="number">35%</span>
-											<span class="title">신규고객 수</span>
+											<span class="number">${today_join.today_join}명</span>
+											<span class="title">일일 회원가입 수</span>
 										</p>
 									</div>
 								</div>
@@ -191,56 +161,33 @@
 									<table class="table table-striped">
 										<thead>
 											<tr>
-												<th>Order No.</th>
-												<th>Name</th>
-												<th>Amount</th>
-												<th>Date &amp; Time</th>
+												<th>번호</th>
+												<th>제목</th>
+												<th>기업명</th>
+												<th>날짜</th>
 												<th>Status</th>
 											</tr>
 										</thead>
+									<c:forEach items="${list}" var="list">
 										<tbody>
 											<tr>
-												<td><a href="#">763648</a></td>
-												<td>Steve</td>
-												<td>$122</td>
-												<td>Oct 21, 2016</td>
-												<td><span class="label label-success">COMPLETED</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763649</a></td>
-												<td>Amber</td>
-												<td>$62</td>
-												<td>Oct 21, 2016</td>
-												<td><span class="label label-warning">PENDING</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763650</a></td>
-												<td>Michael</td>
-												<td>$34</td>
-												<td>Oct 18, 2016</td>
-												<td><span class="label label-danger">FAILED</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763651</a></td>
-												<td>Roger</td>
-												<td>$186</td>
-												<td>Oct 17, 2016</td>
-												<td><span class="label label-success">SUCCESS</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763652</a></td>
-												<td>Smith</td>
-												<td>$362</td>
-												<td>Oct 16, 2016</td>
-												<td><span class="label label-success">SUCCESS</span></td>
+												<td>${list.bqno} }</td>
+												<td><a href="/yak_erp/bq_view?bqno=${list.bqno}">${list.subject}</a></td>
+												<td>${list.company_name}</td>
+												<td>${list.ques_date}</td>
+												<td>
+												<c:if test="${list.status == 1}"><span class="label label-success">처리 완료</span></c:if>
+												<c:if test="${list.status == 0}"><span class="label label-danger">미 처리</span></c:if>
+												</td>
 											</tr>
 										</tbody>
+									</c:forEach>
 									</table>
 								</div>
 								<div class="panel-footer">
 									<div class="row">
 										<div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Last 24 hours</span></div>
-										<div class="col-md-6 text-right"><a href="#" class="btn btn-primary">View All Purchases</a></div>
+										<div class="col-md-6 text-right"><a href="/yak_erp/b_quesList?num=1" class="btn btn-primary">모든 리뷰 보기</a></div>
 									</div>
 								</div>
 							</div>
@@ -284,7 +231,8 @@
 				[
 					<c:forEach var = "statistics" items="${statistics}"> 
 					${statistics.visit_count},</c:forEach>],
-				[14, 25, 18, 34, 29, 38, 44],
+				[<c:forEach var = "statisticss" items="${statisticss}"> 
+				${statisticss.join_count},</c:forEach>],
 			]
 				
 		};

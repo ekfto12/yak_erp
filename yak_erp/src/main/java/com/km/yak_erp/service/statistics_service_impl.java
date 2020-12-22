@@ -18,10 +18,19 @@ public class statistics_service_impl implements statistics_service{
 	   public List<Statistics> getweek(){
 	      return statisticsDAO.getweek();
 	   }
+	@Override
+	   public List<Statistics> getweek_join(){
+	      return statisticsDAO.getweek_join();
+	   }
 
 	@Override
 	   public Statistics gettoday(){
 	      return statisticsDAO.gettoday();
+	   }
+	
+	@Override
+	   public Statistics gettoday_join(){
+	      return statisticsDAO.gettoday_join();
 	   }
 	
 	@Override

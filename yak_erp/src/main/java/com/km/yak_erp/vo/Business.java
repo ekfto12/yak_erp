@@ -12,5 +12,8 @@ public class Business {
 	private String manager_name;
 	private String contact;
 	private String email;
+	private int bno;
+	private String manager_pw;
+	private String rnum;
 	
 }

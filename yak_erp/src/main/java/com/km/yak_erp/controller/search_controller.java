@@ -17,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.km.yak_erp.service.search_service;
 import com.km.yak_erp.vo.Banner;
 import com.km.yak_erp.vo.Business;
+import com.km.yak_erp.vo.Drug;
+import com.km.yak_erp.vo.Member;
 
 @Controller
 public class search_controller {
@@ -29,8 +31,12 @@ public class search_controller {
 	    System.out.println("검색될 문자 개수 "+s.length);
 	    List<Banner> list = new ArrayList<Banner>();
 	    List<Business> listt = new ArrayList<Business>();
+	    List<Drug> drug = new ArrayList<Drug>();
+	    List<Member> member = new ArrayList<Member>();
 	    
 	    
+	    member = search_service.searchMember(search);
+	    drug = search_service.searchDrug(search);
 		list = search_service.searchBanner(search);
 		listt = search_service.searchBusiness(search);
 		
@@ -38,7 +44,9 @@ public class search_controller {
 		mv.addObject("searchKeyword",search);
 	    mv.addObject("banner", list); // 맵에 저장된 데이터를 mav에 저장
 	    mv.addObject("business", listt);
-	    mv.setViewName("search");
+	    mv.addObject("member", member);
+	    mv.addObject("drug", drug);
+	    mv.setViewName("search/search");
 	    
 		return mv;
 	}

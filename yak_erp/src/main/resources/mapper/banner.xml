@@ -7,7 +7,8 @@
 	
 	<update id="bannerUp">
 		update banner set ban_name = #{ban_name}, company_name = #{company_name},
-		ban_start = #{ban_start}, ban_exit = #{ban_exit}, price = #{price}
+		ban_start = #{ban_start}, ban_exit = #{ban_exit}, price = #{price}, img_dir = #{img_dir},
+		img_dirr = #{img_dirr}
 		where ban_name = #{ban_name}
 	</update>
 	
@@ -34,6 +35,14 @@
      
 	</update>
 	
+	<delete id="bannerdrop">
+    	  delete
+    	  from 
+    	  	  banner
+          WHERE
+              ban_num = #{ban_num}
+    </delete>
+	
 	 <select id="bannerSearch" resultType="com.km.yak_erp.vo.Banner">
         <![CDATA[
           SELECT
@@ -56,5 +65,45 @@
               ban_num = #{ban_num}
       
     </select>
+    
+    <select id = "listPage" parameterType="hashMap" resultType="com.km.yak_erp.vo.Banner">
+		<![CDATA[
+
+	 select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+ BAN_NUM, BAN_NAME, COMPANY_NAME,BAN_START,BAN_EXIT,PRICE,IMG_DIR,IMG_DIRR,STATE
+ from banner
+ WHERE BAN_NAME LIKE '%'||#{keyword}||'%'
+ or company_name LIKE '%'||#{keyword}||'%'
+ ) A
+ where rownum <=#{displayPost}+#{postNum})
+ where rnum > #{displayPost}
+ order by rnum asc
+
+ 	
+		
+		
+		
+		]]>
+		
+		
+	</select>
+	
+	<!-- 게시물 총 갯수 -->
+	
+	<select id="count" resultType="int">
+	<![CDATA[
+ 		select count(ban_num) from banner
+ 		]]>
+</select>	
+	<select id="searchcount" parameterType="hashMap" resultType="int">
+	<![CDATA[
+ 		select count(ban_num) from banner
+ 		WHERE ban_name LIKE '%' ||  #{keyword} || '%'
+ 		
+ 		]]>
+ 		</select>
 
 </mapper>

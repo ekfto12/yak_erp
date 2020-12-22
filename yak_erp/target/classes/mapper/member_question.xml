@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member_question">
+
+	
+	<select id = "listPage" parameterType="hashMap" resultType="com.km.yak_erp.vo.Member_question">
+		<![CDATA[
+ select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+  qno, member_id,ques_subject,ques_question,ques_date,status
+ from member_question
+  WHERE member_id LIKE '%'||#{keyword}||'%'
+ ) A
+ where rownum <=#{displayPost}+#{postNum})
+ where rnum > #{displayPost}	
+		]]>
+		
+		
+	</select>
+	
+	<!-- 게시물 총 갯수 -->
+	
+	<select id="count" resultType="int">
+	<![CDATA[
+ 		select count(qno) from member_question
+ 		]]>
+</select>	
+
+	<select id="searchcount" parameterType="hashMap" resultType="int">
+	<![CDATA[
+ 		select count(qno) from member_question
+ 		WHERE member_id LIKE '%' ||  #{keyword} || '%'
+ 		]]>
+
+
+	</select>
+	
+	<insert id="mq_write" parameterType="com.km.yak_erp.vo.Member_question">
+		insert into
+		member_question(qno,ques_subject,member_id,ques_question,ques_date)
+		VALUES(seq_qno.NEXTVAL,#{ques_subject},#{member_id},#{ques_question},SYSDATE)
+	</insert>
+	<!-- 게시물 조회 -->
+	<select id="mq_view" parameterType="int"
+		resultType="com.km.yak_erp.vo.Member_question">
+<![CDATA[
+ select 
+  qno, ques_subject,member_id,ques_question,ques_date,status
+ from 
+  member_question
+ where
+  qno = #{qno}  
+  ]]>
+	</select>
+
+	<update id="mq_modify" parameterType="com.km.yak_erp.vo.Member_question">
+		update member_question
+		set
+		ques_subject = #{ques_subject},
+		member_id = #{member_id},
+		ques_question =#{ques_question}
+		where qno = #{qno}
+	</update>
+	
+	<update id="mq_status" parameterType="com.km.yak_erp.vo.Member_question">
+		update member_question
+		set
+		status = 1
+		where qno = #{qno}
+	</update>
+
+	<!-- 게시물 삭제 -->
+	<delete id="mq_delete" parameterType="int">
+		delete
+		from
+		member_question
+		where qno = #{qno}
+	</delete>
+	
+
+</mapper>

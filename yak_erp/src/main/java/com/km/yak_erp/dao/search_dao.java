@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.km.yak_erp.vo.Banner;
 import com.km.yak_erp.vo.Business;
+import com.km.yak_erp.vo.Drug;
+import com.km.yak_erp.vo.Member;
 
 @Repository("search_dao")
 public class search_dao {
@@ -20,6 +22,14 @@ public class search_dao {
 	
 	public List<Business> searchBusiness(String search){
 		return sqlSession.selectList("search.searchBusiness", search);
+	}
+	
+	public List<Drug> searchDrug(String search){
+		return sqlSession.selectList("search.searchDrug", search);
+	}
+	
+	public List<Member> searchMember(String search){
+		return sqlSession.selectList("search.searchMember", search);
 	}
 	
 }

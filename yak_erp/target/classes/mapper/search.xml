@@ -28,6 +28,30 @@
    ]]>       
     </select>
     
+    <select id="searchDrug" resultType="com.km.yak_erp.vo.Drug" parameterType="String">
+        <![CDATA[
+      select * from 
+         (select rownum r, b.* from
+            ( select DRUG_NAME,INGREDIENT from DRUG where (DRUG_NAME  like '%' ||  #{keyword} || '%' 
+               or INGREDIENT like '%' ||  #{keyword} || '%') order by DRUG_NAME asc)b
+          )
+          where r < 6  order by r asc
+   ]]>       
+    </select>
+    
+    <select id="searchMember" resultType="com.km.yak_erp.vo.Member" parameterType="String">
+        <![CDATA[
+      select * from 
+         (select rownum r, b.* from
+            ( select MEMBER_ID,MEMBER_NAME from MEMBER where (MEMBER_ID  like '%' ||  #{keyword} || '%' 
+               or MEMBER_NAME like '%' ||  #{keyword} || '%') order by MEMBER_ID desc)b
+          )
+          where r < 6  order by r asc
+   ]]>       
+    </select>
+    
+    
+    
     <select id="selectById" resultType="com.km.yak_erp.vo.Member">
         <![CDATA[
           SELECT

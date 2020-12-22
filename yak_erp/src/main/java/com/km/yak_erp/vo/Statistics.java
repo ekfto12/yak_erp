@@ -11,4 +11,6 @@ public class Statistics {
 	private int banner_total;
 	private int banner_monthly;
 	private int banner_monthly_total;
+	private int today_join;
+	private int join_count;
 }

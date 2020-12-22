@@ -16,8 +16,14 @@ public class statistics_dao {
 	public List<Statistics> getweek(){
 		return sqlSession.selectList("statistics.getweek");
 	}
+	public List<Statistics> getweek_join(){
+		return sqlSession.selectList("statistics.getweek_join");
+	}
 	public Statistics gettoday() {
 		return sqlSession.selectOne("statistics.gettoday");
+	}
+	public Statistics gettoday_join() {
+		return sqlSession.selectOne("statistics.gettoday_join");
 	}
 	public Statistics getlive() {
 		return sqlSession.selectOne("statistics.getlive");

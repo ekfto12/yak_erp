@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.km.yak_erp.dao.banner_dao;
 import com.km.yak_erp.vo.Banner;
+import com.km.yak_erp.vo.Business;
+import com.km.yak_erp.vo.Drug;
 
 @Service("bannerService")
 public class banner_service_impl implements banner_service{
@@ -37,5 +39,24 @@ public class banner_service_impl implements banner_service{
 	@Override
 	public int bannerEdit(Banner vo) throws Exception{
 		return bannerDAO.bannerUp(vo);
+	}
+	
+	@Override
+	public void bannerdrop(Banner vo) throws Exception{
+		bannerDAO.bannerdrop(vo);
+	}
+	@Override
+	public int count() throws Exception {
+	 return bannerDAO.count();
+	}
+	
+	@Override
+	public List<Banner> listPage(int displayPost, int postNum,String keyword) throws Exception {
+	 return bannerDAO.listPage(displayPost, postNum,keyword);
+	}
+	
+	@Override
+	public int searchcount(String keyword) throws Exception{
+		return bannerDAO.searchcount(keyword);
 	}
 }
