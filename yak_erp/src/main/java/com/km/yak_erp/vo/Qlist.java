@@ -13,6 +13,6 @@ public class Qlist {
 	private String ques_question;
 	private Date ques_date;
 	private String rnum;
-	
+	private int status;
 	
 }

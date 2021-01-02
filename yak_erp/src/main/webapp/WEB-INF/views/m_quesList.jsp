@@ -110,7 +110,7 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">비즈니스</h3>
+					<h3 class="page-title">회원</h3>
 
 					<div class="col-md-12">
 						<!-- TABLE HOVER -->
@@ -130,17 +130,25 @@
 									<thead>
 										<tr>
 											<th style="width: 10%; text-align: center;">번호</th>
-											<th style="width: 50%; text-align: center;">제목</th>
-											<th style="width: 50%; text-align: center;">회원id</th>
+											<th style="width: 40%; text-align: center;">제목</th>
+											<th style="width: 40%; text-align: center;">회원id</th>
+											<th style="width: 10%; text-align: center;">상태</th>
 										</tr>
 									</thead>
 									<c:forEach items="${list}" var="list">
 										<tbody>
 											<tr>
 												<td>${list.qno}</td>
-												<td style = "cursor:pointer;"onClick="location.href=''">${list.ques_subject}</td>
+												<td><a href="/yak_erp/mq_view?qno=${list.qno}">${list.ques_subject}</a></td>
 												<td>${list.member_id}</td>
-
+												<td> 
+												 
+												<c:if test="${list.status == 1}"><span class="label label-success">처리 완료</span></c:if>
+												<c:if test="${list.status == 0}"><span class="label label-danger">미 처리</span></c:if>
+												
+												</td>
+												
+														
 												<td></td>
 											</tr>
 
@@ -151,7 +159,7 @@
 								<br />
 								<p class="demo-button" align=right>
 									<button type="button" class="btn btn-default"
-										onclick="location.href=''">문의 등록</button>
+										onclick="location.href='/yak_erp/mq_write'">문의 등록</button>
 
 								</p>
 								<div align="center">

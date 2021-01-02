@@ -52,4 +52,27 @@ public class qlist_dao {
 		 
 		 return sqlSession.selectOne("qlist.searchcount", data); 
 	}
+	
+public void mq_write(Qlist vo) throws Exception {
+		
+		sqlSession.insert("qlist.mq_write",vo);
+		
+	}
+	// 게시물 조회
+	public Qlist mq_view(int qno) throws Exception {
+	 
+	 return sqlSession.selectOne("qlist.mq_view", qno);
+	}
+	
+	public void mq_modify(Qlist vo) throws Exception {
+		 sqlSession.update("qlist.mq_modify", vo);
+		}
+	
+	public void mq_status(Qlist vo) throws Exception {
+		 sqlSession.update("qlist.mq_status", vo);
+		}
+	
+	public void mq_delete(int qno) throws Exception {
+		 sqlSession.delete("qlist.mq_delete", qno);
+		}
 }

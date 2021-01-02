@@ -32,6 +32,8 @@ import com.km.yak_erp.vo.Banner;
 import com.km.yak_erp.vo.Bqlist;
 import com.km.yak_erp.vo.Business;
 import com.km.yak_erp.vo.Drug;
+import com.km.yak_erp.vo.Qlist;
+
 import java.lang.Math;
 
 @Controller
@@ -48,6 +50,60 @@ public class bqlist_controller {
         model.addAttribute("list", list);
     }
 	*/
+	@RequestMapping(value = "/bq_write", method = RequestMethod.GET)
+	public void getbq_write() throws Exception {
+	   
+	}
+	
+	// 寃뚯떆臾� �옉�꽦
+	@RequestMapping(value = "/bq_write", method = RequestMethod.POST)
+	public String postbq_write(Bqlist vo) throws Exception {
+	  bqlist_service.bq_write(vo);
+	  System.out.println(vo);
+	  return "redirect:/b_quesList?num=1";
+	}
+	
+	// 게시물 조회
+	@RequestMapping(value = "/bq_view", method = RequestMethod.GET)
+	public void getbq_view(@RequestParam("bqno") int bqno, Model model) throws Exception {
+		Bqlist vo = bqlist_service.bq_view(bqno);
+		model.addAttribute("bq_view",vo);
+
+	}
+	
+	@RequestMapping(value = "/bq_modify", method = RequestMethod.GET)
+	public void getbq_modify(@RequestParam("bqno") int bqno, Model model) throws Exception {
+		Bqlist vo = bqlist_service.bq_view(bqno);
+		model.addAttribute("bq_view",vo);
+		
+		
+	}
+	@RequestMapping(value = "/bq_modify", method = RequestMethod.POST)
+	public String postbq_modify(Bqlist vo) throws Exception {
+	  bqlist_service.bq_modify(vo);
+	  
+	  return "redirect:/bq_view?bqno="+vo.getBqno();
+	}
+	
+	@RequestMapping(value = "/bq_status", method = RequestMethod.GET)
+	public String getbq_status(@RequestParam("bqno") int bqno, Model model) throws Exception {
+		Bqlist vo = bqlist_service.bq_view(bqno);
+		model.addAttribute("bq_view",vo);
+		
+		bqlist_service.bq_status(vo);
+		
+		return "redirect:/b_quesList?num=1";
+	}
+	
+	// 게시물 삭제
+	@RequestMapping(value = "/bq_delete", method = RequestMethod.GET)
+	public String getbq_delete(@RequestParam("bqno") int bqno) throws Exception {
+	  
+	 bqlist_service.bq_delete(bqno);  
+
+	 return "redirect:/b_quesList?num=1";
+	}
+	
 	
 	@RequestMapping(value="/b_quesList", method = RequestMethod.GET)
     public void getListpage(Model model, @RequestParam("num") int num, 
@@ -75,6 +131,12 @@ public class bqlist_controller {
 		   model.addAttribute("next", page.getNext());  
 
 		   model.addAttribute("select", num);
+		   
+		   
+		   
+		   
+		   
+		   
 		 /*
 		 // 한 페이지에 출력할 게시물 갯수
 		 int postNum = 10;

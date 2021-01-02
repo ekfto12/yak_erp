@@ -28,7 +28,7 @@ import com.km.yak_erp.service.business_service;
 import com.km.yak_erp.service.drug_service;
 import com.km.yak_erp.util.CommandMap;
 import com.km.yak_erp.util.UploadFileUtils;
-
+import com.km.yak_erp.vo.Bqlist;
 import com.km.yak_erp.vo.Qlist;
 
 import java.lang.Math;
@@ -37,6 +37,63 @@ import java.lang.Math;
 public class qlist_controller {
 	@Resource(name="qlistService")
 	 private qlist_service qlist_service;
+	
+	@RequestMapping(value = "/mq_write", method = RequestMethod.GET)
+	public void getmq_write() throws Exception {
+	   
+	}
+	
+	// 寃뚯떆臾� �옉�꽦
+	@RequestMapping(value = "/mq_write", method = RequestMethod.POST)
+	public String postmq_write(Qlist vo) throws Exception {
+	  qlist_service.mq_write(vo);
+	  System.out.println(vo);
+	  return "redirect:/m_quesList?num=1";
+	}
+	
+	// 게시물 조회
+	@RequestMapping(value = "/mq_view", method = RequestMethod.GET)
+	public void getmq_view(@RequestParam("qno") int qno, Model model) throws Exception {
+		Qlist vo = qlist_service.mq_view(qno);
+		model.addAttribute("mq_view",vo);
+
+	}
+	
+	@RequestMapping(value = "/mq_modify", method = RequestMethod.GET)
+	public void getmq_modify(@RequestParam("qno") int qno, Model model) throws Exception {
+		Qlist vo = qlist_service.mq_view(qno);
+		model.addAttribute("mq_view",vo);
+		
+		
+	}
+	@RequestMapping(value = "/mq_modify", method = RequestMethod.POST)
+	public String postmq_modify(Qlist vo) throws Exception {
+	  qlist_service.mq_modify(vo);
+	  
+	  return "redirect:/mq_view?qno="+vo.getQno();
+	}
+	
+	@RequestMapping(value = "/mq_status", method = RequestMethod.GET)
+	public String getmq_status(@RequestParam("qno") int qno, Model model) throws Exception {
+		Qlist vo = qlist_service.mq_view(qno);
+		model.addAttribute("mq_view",vo);
+		
+		qlist_service.mq_status(vo);
+		
+		return "redirect:/m_quesList?num=1";
+	}
+	
+	
+	
+	// 게시물 삭제
+	@RequestMapping(value = "/mq_delete", method = RequestMethod.GET)
+	public String getmq_delete(@RequestParam("qno") int qno) throws Exception {
+	  
+	 qlist_service.mq_delete(qno);  
+
+	 return "redirect:/m_quesList?num=1";
+	}
+	
 	
 	/*
 	@RequestMapping(value="/blist", method = RequestMethod.GET)

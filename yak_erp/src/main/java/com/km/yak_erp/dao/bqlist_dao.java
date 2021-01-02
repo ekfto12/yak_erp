@@ -13,6 +13,7 @@ import com.km.yak_erp.vo.Bqlist;
 import com.km.yak_erp.vo.Business;
 import com.km.yak_erp.vo.Drug;
 import com.km.yak_erp.vo.Member;
+import com.km.yak_erp.vo.Qlist;
 
 
 
@@ -40,6 +41,14 @@ public class bqlist_dao {
 	
 	}
 	
+	public List<Bqlist> listPage5() throws Exception{
+		 
+		 return sqlSession.selectList("bqlist.listPage5");
+	
+	}
+	
+
+	
 	public int count() throws Exception{
 		return sqlSession.selectOne("bqlist.count"); 
 	}
@@ -51,6 +60,31 @@ public class bqlist_dao {
 		 data.put("keyword", keyword);
 		 
 		 return sqlSession.selectOne("bqlist.searchcount", data); 
+	} 
+	
+	public void bq_write(Bqlist vo) throws Exception {
+		
+		sqlSession.insert("bqlist.bq_write",vo);
+		
+	}
+	// 게시물 조회
+	public Bqlist bq_view(int bqno) throws Exception {
+	 
+	 return sqlSession.selectOne("bqlist.bq_view", bqno);
 	}
 	
+	public void bq_modify(Bqlist vo) throws Exception {
+		 sqlSession.update("bqlist.bq_modify", vo);
+		}
+	
+	public void bq_status(Bqlist vo) throws Exception {
+		 sqlSession.update("bqlist.bq_status", vo);
+		}
+	
+	public void bq_delete(int bqno) throws Exception {
+		 sqlSession.delete("bqlist.bq_delete", bqno);
+		}
+	
 }
+	
+

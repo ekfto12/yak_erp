@@ -39,4 +39,25 @@ public class qlist_service_impl implements qlist_service{
 		return qlistDAO.searchcount(keyword);
 	}
 	
+	@Override
+	public void mq_write(Qlist vo) throws Exception{
+		qlistDAO.mq_write(vo);
+	}
+	@Override
+	public Qlist mq_view(int qno) throws Exception{
+		return qlistDAO.mq_view(qno);
+	}
+	@Override
+	public void mq_modify(Qlist vo) throws Exception{
+		qlistDAO.mq_modify(vo);
+	}
+	@Override
+	public void mq_delete(int qno) throws Exception {
+		 qlistDAO.mq_delete(qno);
+		}
+	
+	@Override
+	public void mq_status(Qlist vo) throws Exception{
+		qlistDAO.mq_status(vo);
+	}
 }

@@ -124,7 +124,7 @@
 								<div class="input-group"
 									style="width: 40%; margin-left: auto; margin-right: 115px;">
 									<input type="text" value="" class="form-control" name="keyword"
-										placeholder="Search..."> <span class="input-group-btn"><button
+										placeholder="기업명 검색"> <span class="input-group-btn"><button
 											type="button" class="btn btn-primary" id="searchBtn">검색</button></span>
 								</div>
 								<br /> <br />
@@ -155,7 +155,7 @@
 								<br />
 								<p class="demo-button" align=right>
 									<button type="button" class="btn btn-default"
-										onclick="lo	cation.href='register'">기업 등록</button>
+										onclick="location.href='register'">기업 등록</button>
 
 								</p>
 								<div align="center">

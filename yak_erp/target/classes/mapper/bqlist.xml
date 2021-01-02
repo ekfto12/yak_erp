@@ -11,15 +11,28 @@
  from(
  select rownum as rnum, A.*
  from (select
-  bqno, company_name, subject,question,ques_date
+  bqno, company_name, subject,question,ques_date,status
  from business_question
  WHERE company_name LIKE '%' ||  #{keyword} || '%'
  ) A
  where rownum <=#{displayPost}+#{postNum})
  where rnum > #{displayPost}	
 		]]>
+	</select>
 
-
+	<select id="listPage5" parameterType="hashMap"
+		resultType="com.km.yak_erp.vo.Bqlist">
+		<![CDATA[
+ select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+  bqno, company_name, subject,question,ques_date,status
+ from business_question
+ order by ques_date desc
+ ) A
+ where rownum <=5)	
+		]]>
 	</select>
 
 	<!-- 게시물 총 갯수 -->
@@ -29,15 +42,55 @@
  		select count(bqno) from business_question
  		]]>
 	</select>
-	
+
 	<select id="searchcount" parameterType="hashMap"
 		resultType="int">
 	<![CDATA[
  		select count(bqno) from business_question
  		WHERE company_name LIKE '%' ||  #{keyword} || '%'
  		]]>
-
-
 	</select>
+
+	<insert id="bq_write" parameterType="com.km.yak_erp.vo.Bqlist">
+		insert into
+		business_question(bqno,subject,company_name,question,ques_date)
+		VALUES(seq_bqno.NEXTVAL,#{subject},#{company_name},#{question},SYSDATE)
+	</insert>
+	<!-- 게시물 조회 -->
+	<select id="bq_view" parameterType="int"
+		resultType="com.km.yak_erp.vo.Bqlist">
+<![CDATA[
+ select 
+  bqno, subject,company_name,question,ques_date,status
+ from 
+  business_question
+ where
+  bqno = #{bqno}  
+  ]]>
+	</select>
+
+	<update id="bq_modify" parameterType="com.km.yak_erp.vo.Bqlist">
+		update business_question
+		set
+		subject = #{subject},
+		company_name = #{company_name},
+		question =
+		#{question}
+		where bqno = #{bqno}
+	</update>
+	
+	<update id="bq_status" parameterType="com.km.yak_erp.vo.Bqlist">
+		update business_question
+		set
+		status = 1
+		where bqno = #{bqno}
+	</update>
+
+	<!-- 게시물 삭제 -->
+	<delete id="bq_delete" parameterType="int">
+		delete
+		from business_question
+		where bqno = #{bqno}
+	</delete>
 
 </mapper>

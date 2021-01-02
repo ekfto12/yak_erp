@@ -177,56 +177,33 @@
 									<table class="table table-striped">
 										<thead>
 											<tr>
-												<th>Order No.</th>
-												<th>Name</th>
-												<th>Amount</th>
-												<th>Date &amp; Time</th>
+												<th>번호</th>
+												<th>제목</th>
+												<th>기업명</th>
+												<th>날짜</th>
 												<th>Status</th>
 											</tr>
 										</thead>
+									<c:forEach items="${list}" var="list">
 										<tbody>
 											<tr>
-												<td><a href="#">763648</a></td>
-												<td>Steve</td>
-												<td>$122</td>
-												<td>Oct 21, 2016</td>
-												<td><span class="label label-success">COMPLETED</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763649</a></td>
-												<td>Amber</td>
-												<td>$62</td>
-												<td>Oct 21, 2016</td>
-												<td><span class="label label-warning">PENDING</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763650</a></td>
-												<td>Michael</td>
-												<td>$34</td>
-												<td>Oct 18, 2016</td>
-												<td><span class="label label-danger">FAILED</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763651</a></td>
-												<td>Roger</td>
-												<td>$186</td>
-												<td>Oct 17, 2016</td>
-												<td><span class="label label-success">SUCCESS</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763652</a></td>
-												<td>Smith</td>
-												<td>$362</td>
-												<td>Oct 16, 2016</td>
-												<td><span class="label label-success">SUCCESS</span></td>
+												<td>${list.bqno} }</td>
+												<td><a href="/yak_erp/bq_view?bqno=${list.bqno}">${list.subject}</a></td>
+												<td>${list.company_name}</td>
+												<td>${list.ques_date}</td>
+												<td>
+												<c:if test="${list.status == 1}"><span class="label label-success">처리 완료</span></c:if>
+												<c:if test="${list.status == 0}"><span class="label label-danger">미 처리</span></c:if>
+												</td>
 											</tr>
 										</tbody>
+									</c:forEach>
 									</table>
 								</div>
 								<div class="panel-footer">
 									<div class="row">
 										<div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Last 24 hours</span></div>
-										<div class="col-md-6 text-right"><a href="#" class="btn btn-primary">View All Purchases</a></div>
+										<div class="col-md-6 text-right"><a href="/yak_erp/b_quesList?num=1" class="btn btn-primary">모든 리뷰 보기</a></div>
 									</div>
 								</div>
 							</div>

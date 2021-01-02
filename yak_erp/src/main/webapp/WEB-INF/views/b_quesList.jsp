@@ -85,7 +85,7 @@
 								<ul class="nav">
 									<li><a href="/yak_erp/blistpage?num=1" class="">기업정보조회</a></li>
 									<li><a href="/yak_erp/Banner" class="">배너관리</a></li>
-									<li><a href="/yak_erp/b_quesList" class="active">문의내역</a></li>
+									<li><a href="/yak_erp/b_quesList?num=1" class="active">문의내역</a></li>
 								</ul>
 							</div></li>
 						<li><a href="/yak_erp/dlistpage?num=1" class=""><i
@@ -132,14 +132,20 @@
 											<th style="width: 10%; text-align: center;">번호</th>
 											<th style="width: 50%; text-align: center;">제목</th>
 											<th style="width: 50%; text-align: center;">회사명</th>
+											<th style="width : 10%; text-align: center">상태</th>
 										</tr>
 									</thead>
 									<c:forEach items="${list}" var="list">
 										<tbody>
 											<tr>
 												<td>${list.bqno}</td>
-												<td style = "cursor:pointer;"onClick="location.href=''">${list.subject}</td>
+												<td><a href="/yak_erp/bq_view?bqno=${list.bqno}">${list.subject}</a></td>
 												<td>${list.company_name}</td>
+												<td>
+												<c:if test="${list.status == 1}"><span class="label label-success">처리 완료</span></c:if>
+												<c:if test="${list.status == 0}"><span class="label label-danger">미 처리</span></c:if>
+													
+												</td>
 
 												<td></td>
 											</tr>
@@ -151,7 +157,7 @@
 								<br />
 								<p class="demo-button" align=right>
 									<button type="button" class="btn btn-default"
-										onclick="location.href=''">문의 등록</button>
+										onclick="location.href='/yak_erp/bq_write'">문의 등록</button>
 
 								</p>
 								<div align="center">
