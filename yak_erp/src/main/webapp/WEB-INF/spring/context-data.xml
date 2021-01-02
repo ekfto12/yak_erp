@@ -40,4 +40,32 @@
 	</bean> <!-- 아노테이션 기반의 트랜잭션을 사용합니다. -->
 	<tx:annotation-driven
 		transaction-manager="transactionManager" />
+		<bean id="boardService" class="com.km.yak_erp.service.BoardServiceImpl"/>
+	<bean id="SmsDAO" class="com.km.yak_erp.dao.SmsDAO"/>
+	
+	<bean id="testJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		
+		<property name="targetObject" ref="boardService" />
+		<property name="targetMethod" value="testJobMethod" />
+		<property name="concurrent" value="false" />
+	</bean>
+    
+	<bean id="testJobTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		
+		<property name="jobDetail" ref="testJob" />
+		<!--  <property name="cronExpression" value="0 0 7,13,18 1/1 * ? *" />-->
+	</bean>
+	 
+	<!-- 0 0/1 * 1/1 * ? * -->
+	<!-- 0 0 7,13,18 1/1 * ? * -->
+	<bean id="testJobScheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="testJobTrigger" />
+			</list>
+		</property>
+	</bean>
 </beans>

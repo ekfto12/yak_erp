@@ -2,6 +2,70 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="business">
+<<<<<<< HEAD
+=======
+	
+	
+	<insert id="business_add">
+		insert into buisness (company_name, owner_name, company_addr, c_comment, manager_id,
+		manager_name, contact, email, bno, manager_pw)
+		values 
+		(#{company_name}, #{owner_name}, #{company_addr},
+		#{c_comment}, #{manager_id},
+		#{manager_name}, #{contact}, #{email}, busi_num.nextval, #{manager_pw} )
+	</insert>
+	
+	
+	
+	<update id="businessUp">
+		update buisness set company_name = #{company_name}, owner_name = #{owner_name},
+		company_addr = #{company_addr}, c_comment = #{c_comment}, manager_id = #{manager_id},
+		manager_name = #{manager_name}, contact = #{contact}, email = #{email}, manager_pw = #{manager_pw}
+		where company_name = #{company_name}
+	</update>
+	
+	
+    <select id="businessget" resultType="com.km.yak_erp.vo.Business">
+       
+          select
+              *
+          from
+              buisness
+          WHERE
+              company_name = #{company_name}
+      
+    </select>
+    
+    <select id="qu_get" resultType="com.km.yak_erp.vo.Business_question">
+       
+          select
+              *
+          from
+              Buisness_question
+          WHERE
+              company_name = #{company_name}
+      
+    </select>
+    
+    <select id="bannerget" resultType="com.km.yak_erp.vo.Banner">
+          select
+              *
+          from
+              banner
+          WHERE
+              company_name = #{company_name}
+    </select>
+    
+    <delete id="businessDel">
+    	  delete
+    	  from 
+    	  	  buisness
+          WHERE
+              company_name = #{company_name}
+    </delete>
+
+
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
 	<select id="list" resultType="com.km.yak_erp.vo.Business">
 		<![CDATA[
 		  SELECT
@@ -22,7 +86,11 @@
  select rownum as rnum, A.*
  from (select
   bno, company_name, owner_name,company_addr,c_comment,manager_id,manager_name,contact,email
+<<<<<<< HEAD
  from business	
+=======
+ from buisness	
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
  WHERE company_name LIKE '%'||#{keyword}||'%'
  ) A
  where rownum <=#{displayPost}+#{postNum})
@@ -39,7 +107,11 @@
  select rownum as rnum, A.*
  from (select
   bno, company_name, owner_name,company_addr,c_comment,manager_id,manager_name,contact,email
+<<<<<<< HEAD
  from business
+=======
+ from buisness
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
 WHERE company_name LIKE '%'|| #{keyword}||'%'
  ) A
  where rownum <=#{displayPost}+#{postNum})
@@ -53,7 +125,11 @@ WHERE company_name LIKE '%'|| #{keyword}||'%'
 
 	<select id="count" resultType="int">
 	<![CDATA[
+<<<<<<< HEAD
  		select count(bno) from business
+=======
+ 		select count(bno) from buisness
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
  		]]>
 
 
@@ -61,6 +137,7 @@ WHERE company_name LIKE '%'|| #{keyword}||'%'
 
 	<select id="searchcount" parameterType="hashMap" resultType="int">
 	<![CDATA[
+<<<<<<< HEAD
  		select count(bno) from business
  		WHERE company_name LIKE '%' ||  #{keyword} || '%'
  		]]>
@@ -68,3 +145,10 @@ WHERE company_name LIKE '%'|| #{keyword}||'%'
 
 	</select>
 </mapper>
+=======
+ 		select count(bno) from buisness
+ 		WHERE company_name LIKE '%' ||  #{keyword} || '%'
+ 		]]>
+	</select>
+</mapper>
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54

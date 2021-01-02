@@ -14,6 +14,8 @@ public class Banner {
 	private String img_dir;
 	private String img_dirr;
 	private int ban_num;
+	private String state;
+	private String rnum;
 	
 	
 }

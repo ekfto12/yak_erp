@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="business_question">
+
+
+	<select id="listPage" parameterType="hashMap"
+		resultType="com.km.yak_erp.vo.Business_question">
+		<![CDATA[
+ select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+  bqno, company_name, subject,question,ques_date,status
+ from buisness_question
+ WHERE company_name LIKE '%' ||  #{keyword} || '%'
+ ) A
+ where rownum <=#{displayPost}+#{postNum})
+ where rnum > #{displayPost}	
+		]]>
+	</select>
+
+<select id="listPage5" parameterType="hashMap"
+		resultType="com.km.yak_erp.vo.Business_question">
+		<![CDATA[
+ select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+  bqno, company_name, subject,question,ques_date,status
+ from buisness_question
+ order by ques_date desc
+ ) A
+ where rownum <=5)	
+		]]>
+	</select>
+
+	<!-- 게시물 총 갯수 -->
+
+	<select id="count" resultType="int">
+	<![CDATA[
+ 		select count(bqno) from buisness_question
+ 		]]>
+	</select>
+	
+	<select id="searchcount" parameterType="hashMap"
+		resultType="int">
+	<![CDATA[
+ 		select count(bqno) from buisness_question
+ 		WHERE company_name LIKE '%' ||  #{keyword} || '%'
+ 		]]>
+
+
+	</select>
+	
+	<insert id="bq_write" parameterType="com.km.yak_erp.vo.Business_question">
+		insert into
+		buisness_question(bqno,subject,company_name,question,ques_date)
+		VALUES(seq_bqno.NEXTVAL,#{subject},#{company_name},#{question},SYSDATE)
+	</insert>
+	<!-- 게시물 조회 -->
+	<select id="bq_view" parameterType="int"
+		resultType="com.km.yak_erp.vo.Business_question">
+<![CDATA[
+ select 
+  bqno, subject,company_name,question,ques_date,status
+ from 
+  buisness_question
+ where
+  bqno = #{bqno}  
+  ]]>
+	</select>
+
+	<update id="bq_modify" parameterType="com.km.yak_erp.vo.Business_question">
+		update buisness_question
+		set
+		subject = #{subject},
+		company_name = #{company_name},
+		question =
+		#{question}
+		where bqno = #{bqno}
+	</update>
+	
+	<update id="bq_status" parameterType="com.km.yak_erp.vo.Business_question">
+		update buisness_question
+		set
+		status = 1
+		where bqno = #{bqno}
+	</update>
+
+	<!-- 게시물 삭제 -->
+	<delete id="bq_delete" parameterType="int">
+		delete
+		from buisness_question
+		where bqno = #{bqno}
+	</delete>
+	
+
+</mapper>

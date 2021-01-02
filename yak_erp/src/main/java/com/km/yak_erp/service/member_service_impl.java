@@ -11,8 +11,15 @@ import com.km.yak_erp.dao.member_dao;
 import com.km.yak_erp.exception.IdPasswordNotMatchingException;
 import com.km.yak_erp.util.AuthInfo;
 import com.km.yak_erp.util.login_command;
+<<<<<<< HEAD
 
+=======
+import com.km.yak_erp.vo.Banner;
+import com.km.yak_erp.vo.Business;
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
 import com.km.yak_erp.vo.Member;
+import com.km.yak_erp.vo.Member_f;
+import com.km.yak_erp.vo.Member_question;
 
 
 @Service("memberService")
@@ -30,7 +37,7 @@ public class member_service_impl implements member_service{
         if(!member.matchPassword(loginCommand.getPw())) {
             throw new IdPasswordNotMatchingException();
         }
-        return new AuthInfo(member.getMEMBER_ID(), member.getMEMBER_NAME());
+        return new AuthInfo(member.getMember_id(), member.getMember_name());
     }
 	@Override
 	   public Member selectMember (String id) {
@@ -38,6 +45,43 @@ public class member_service_impl implements member_service{
 	   }
 	
 	@Override
+<<<<<<< HEAD
+=======
+	public int member_add(Member vo) throws Exception{
+		return memberDAO.member_add(vo);
+	}
+	
+	@Override
+	public int idCheck(String memberId) throws Exception{
+		return memberDAO.idCheck(memberId);
+	}
+	@Override
+	public Member member_get(String id) throws Exception{
+		return memberDAO.member_get(id);
+	}
+	@Override
+	public int member_edit(Member vo) throws Exception{
+		return memberDAO.member_edit(vo);
+	}
+	@Override
+	public void member_del(Member vo) throws Exception{
+		memberDAO.member_del(vo);
+	}
+	@Override
+	public int member_editt(Member vo) throws Exception{
+		return memberDAO.member_editt(vo);
+	}
+	@Override
+	public List<Member_f> fa_get(String id) throws Exception {
+	 return memberDAO.fa_get(id);
+	}
+	@Override
+	public List<Member_question> qu_get(String id) throws Exception {
+	 return memberDAO.qu_get(id);
+	}
+	
+	@Override
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
 	public int count() throws Exception {
 	 return memberDAO.count();
 	}

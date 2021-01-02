@@ -4,28 +4,106 @@
 <mapper namespace="banner">
 	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 
 		있습니다. -->
-
-
+	
+	<update id="bannerUp">
+		update banner set ban_name = #{ban_name}, company_name = #{company_name},
+		ban_start = #{ban_start}, ban_exit = #{ban_exit}, price = #{price}, img_dir = #{img_dir},
+		img_dirr = #{img_dirr}
+		where ban_name = #{ban_name}
+	</update>
+	
+	
 	<!-- 배너 등록 -->
 	<insert id="bannerIn">
 		insert into banner (ban_name, company_name, ban_start, ban_exit, price,
 		img_dir,
-		ban_num, img_dirr)
+		ban_num, img_dirr, state)
 		values (#{ban_name}, #{company_name}, #{ban_start}, #{ban_exit},
 		#{price}, #{img_dir},
-		ban_num.nextval, #{img_dirr})
+		ban_num.nextval, #{img_dirr}, #{state})
 	</insert>
+	
 
-
+	<update id="bannerClear">
+		
+          UPDATE 
+              banner
+          SET
+              state = ''
+          WHERE
+              state = #{state} 
+     
+	</update>
+	
+	<delete id="bannerdrop">
+    	  delete
+    	  from 
+    	  	  banner
+          WHERE
+              ban_num = #{ban_num}
+    </delete>
+	
 	 <select id="bannerSearch" resultType="com.km.yak_erp.vo.Banner">
         <![CDATA[
           SELECT
-              IMG_DIRR
+              *
           FROM
               BANNER
           WHERE
-              STATE = 'y'      
+              STATE = 'main' or STATE = 'search'
       ]]>
     </select>
+    
+    
+    <select id="bannerGet" resultType="com.km.yak_erp.vo.Banner">
+       
+          select
+              *
+          from
+              banner
+          WHERE
+              ban_num = #{ban_num}
+      
+    </select>
+    
+    <select id = "listPage" parameterType="hashMap" resultType="com.km.yak_erp.vo.Banner">
+		<![CDATA[
+
+	 select *
+ from(
+ select rownum as rnum, A.*
+ from (select
+ BAN_NUM, BAN_NAME, COMPANY_NAME,BAN_START,BAN_EXIT,PRICE,IMG_DIR,IMG_DIRR,STATE
+ from banner
+ WHERE BAN_NAME LIKE '%'||#{keyword}||'%'
+ or company_name LIKE '%'||#{keyword}||'%'
+ ) A
+ where rownum <=#{displayPost}+#{postNum})
+ where rnum > #{displayPost}
+ order by rnum asc
+
+ 	
+		
+		
+		
+		]]>
+		
+		
+	</select>
+	
+	<!-- 게시물 총 갯수 -->
+	
+	<select id="count" resultType="int">
+	<![CDATA[
+ 		select count(ban_num) from banner
+ 		]]>
+</select>	
+	<select id="searchcount" parameterType="hashMap" resultType="int">
+	<![CDATA[
+ 		select count(ban_num) from banner
+ 		WHERE ban_name LIKE '%' ||  #{keyword} || '%'
+ 		
+ 		]]>
+ 		</select>
 
 </mapper>

@@ -4,8 +4,9 @@ import java.sql.Date;
 
 import lombok.Data;
 
-
+@Data
 public class Member {
+<<<<<<< HEAD
 	private String MEMBER_ID;
 	private String MEMBER_PW;
 	private String MEMBER_NAME;
@@ -40,47 +41,20 @@ public class Member {
 		System.out.println(MEMBER_PW);
 		System.out.println(this.MEMBER_PW);
         return this.MEMBER_PW.equals(MEMBER_PW);
+=======
+	private String member_id;
+	private String member_pw;
+	private String member_name;
+	private Date member_born_date;
+	private String member_phone;
+	private String member_comment;
+	private Date member_join_date;
+	private String rnum;
+	private int mno;
+	public boolean matchPassword(String pw) {
+        return this.member_pw.equals(pw);
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
     }
-	public String getMEMBER_ID() {
-		return MEMBER_ID;
-	}
-	public void setMEMBER_ID(String mEMBER_ID) {
-		MEMBER_ID = mEMBER_ID;
-	}
-	public String getMEMBER_PW() {
-		return MEMBER_PW;
-	}
-	public void setMEMBER_PW(String mEMBER_PW) {
-		MEMBER_PW = mEMBER_PW;
-	}
-	public String getMEMBER_NAME() {
-		return MEMBER_NAME;
-	}
-	public void setMEMBER_NAME(String mEMBER_NAME) {
-		MEMBER_NAME = mEMBER_NAME;
-	}
-	public Date getMEMBER_BORN_DATE() {
-		return MEMBER_BORN_DATE;
-	}
-	public void setMEMBER_BORN_DATE(Date mEMBER_BORN_DATE) {
-		MEMBER_BORN_DATE = mEMBER_BORN_DATE;
-	}
-	public String getMEMBER_GENDER() {
-		return MEMBER_GENDER;
-	}
-	public void setMEMBER_GENDER(String mEMBER_GENDER) {
-		MEMBER_GENDER = mEMBER_GENDER;
-	}
-	public String getMEMBER_EMAIL() {
-		return MEMBER_EMAIL;
-	}
-	public void setMEMBER_EMAIL(String mEMBER_EMAIL) {
-		MEMBER_EMAIL = mEMBER_EMAIL;
-	}
-	public Date getMEMBER_JOIN_DATE() {
-		return MEMBER_JOIN_DATE;
-	}
-	public void setMEMBER_JOIN_DATE(Date mEMBER_JOIN_DATE) {
-		MEMBER_JOIN_DATE = mEMBER_JOIN_DATE;
-	}
+
+	
 }

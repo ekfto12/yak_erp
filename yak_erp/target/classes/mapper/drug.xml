@@ -1,17 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 <mapper namespace="drug">
 
 	
 	<select id = "listPage" parameterType="hashMap" resultType="com.km.yak_erp.vo.Drug">
+=======
+<mapper namespace="drug"> 
+<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
+
+	<insert id="drug_add">
+		insert into drug (drug_name, eng_name, ingredient, effects, d_usage,
+		precautins,
+		side_effects, d_route, d_shape, d_category, d_company, d_code,  d_hit, dno)
+		values (#{drug_name}, #{eng_name}, #{ingredient},
+		#{effects}, #{d_usage},
+		#{precautins}, #{side_effects}, #{d_route}, #{d_shape}, #{d_category},
+		#{d_company}, #{d_code}, #{d_hit}, drug_num.nextval)
+	</insert>	
+	
+	<update id="drug_edit">
+		update drug set drug_name = #{drug_name}, eng_name = #{eng_name},
+		ingredient = #{ingredient}, effects = #{effects}, d_usage = #{d_usage},
+		precautins = #{precautins}, side_effects = #{side_effects}, d_route = #{d_route},
+		d_shape = #{d_shape}, d_category = #{d_category}, d_company = #{d_company},
+		d_code = #{d_code}, d_hit = #{d_hit}
+		where drug_name = #{drug_name}
+	</update>
+	
+	<delete id="drug_del">
+    	  delete
+    	  from 
+    	  	  drug
+          WHERE
+              drug_name = #{drug_name}
+    </delete>
+		
+	<select id="drug_get" resultType="com.km.yak_erp.vo.Drug">
+       
+          select
+              *
+          from
+              drug
+          WHERE
+              drug_name = #{drug_name}
+      
+    </select>
+    
+    
+    
+    
+    
+     <select id="idCheck" resultType="int">
+        <![CDATA[
+          SELECT
+              count(*)
+          FROM
+              MEMBER
+          WHERE
+              MEMBER_ID = #{member_id}       
+      ]]>
+    </select>
+    
+    
+    <select id = "listPage" parameterType="hashMap" resultType="com.km.yak_erp.vo.Drug">
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
 		<![CDATA[
 
 	 select *
  from(
  select rownum as rnum, A.*
  from (select
+<<<<<<< HEAD
   dno, DRUG_NAME, ENG_NAME,INGREDIENT,EFFECTS,D_USAGE,PRECAUTINS,SIDE_EFFECTS,COUNT,D_ROUTE,D_SHAPE,D_CATEGORY,D_COMPANY,D_CODE,D_HIT
+=======
+ dno, DRUG_NAME, ENG_NAME,INGREDIENT,EFFECTS,D_USAGE,PRECAUTINS,SIDE_EFFECTS,COUNT,D_ROUTE,D_SHAPE,D_CATEGORY,D_COMPANY,D_CODE,D_HIT
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
  from drug
  WHERE DRUG_NAME LIKE '%'||#{keyword}||'%'
  ) A
@@ -38,5 +103,10 @@
  		WHERE drug_name LIKE '%' ||  #{keyword} || '%'
  		]]>
  		</select>
+<<<<<<< HEAD
 
 </mapper>
+=======
+    
+</mapper>
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54

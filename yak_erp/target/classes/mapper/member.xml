@@ -5,9 +5,77 @@
 	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 
 		있습니다. -->
 
+<<<<<<< HEAD
 
 
 	<select id="selectByEmail" resultType="com.km.yak_erp.vo.Member">
+=======
+	<insert id="member_add">
+		insert into member (member_id, member_pw, member_name, member_born_date, member_phone,
+		member_comment,
+		member_join_date, mno)
+		values (#{member_id}, #{member_pw}, #{member_name},
+		#{member_born_date}, #{member_phone},
+		#{member_comment}, #{member_join_date}, mem_num.nextval)
+	</insert>	
+	<update id="member_edit">
+		update member set member_id = #{member_id}, member_pw = #{member_pw},
+		member_name = #{member_name}, member_born_date = #{member_born_date}, member_phone = #{member_phone},
+		member_comment = #{member_comment}, member_join_date = #{member_join_date}
+		where member_id = #{member_id}
+	</update>
+	
+	<update id="member_editt">
+		update member set member_id = #{member_id}, member_pw = #{member_pw},
+		member_name = #{member_name}, member_born_date = #{member_born_date}, member_phone = #{member_phone},
+		member_comment = #{member_comment}, member_join_date = #{member_join_date}
+	</update>
+	
+	
+	<delete id="member_del">
+    	  delete
+    	  from 
+    	  	  member
+          WHERE
+              member_id = #{member_id}
+    </delete>
+		
+	<select id="member_get" resultType="com.km.yak_erp.vo.Member">
+       
+          select
+              *
+          from
+              member
+          WHERE
+              member_id = #{member_id}
+      
+    </select>
+    <select id="qu_get" resultType="com.km.yak_erp.vo.Member_question">
+       
+          select
+              *
+          from
+              member_question
+          WHERE
+              member_id = #{member_id}
+      
+    </select>
+    
+    <select id="fa_get" resultType="com.km.yak_erp.vo.Member_f">
+       
+          select
+              *
+          from
+              member_f
+          WHERE
+              id = #{id}
+      
+    </select>
+    
+    
+    
+    <select id="selectByEmail" resultType="com.km.yak_erp.vo.Member">
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
         <![CDATA[
           SELECT
               EMAIL,
@@ -28,8 +96,25 @@
           WHERE
               MEMBER_ID = #{id}       
       ]]>
+<<<<<<< HEAD
 	</select>
 	<select id="listPage" parameterType="hashMap"
+=======
+    </select>
+    
+     <select id="idCheck" resultType="int">
+        <![CDATA[
+          SELECT
+              count(*)
+          FROM
+              MEMBER
+          WHERE
+              MEMBER_ID = #{member_id}       
+      ]]>
+    </select>
+    
+    <select id="listPage" parameterType="hashMap"
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
 		resultType="com.km.yak_erp.vo.Member">
 		<![CDATA[
   
@@ -37,9 +122,16 @@
  from(
  select rownum as rnum, A.*
  from (select
+<<<<<<< HEAD
  mno, member_id,member_name, member_pw,member_born_date,member_gender,member_email,member_comment,member_join_date	,authority,enabled
  from member
  WHERE member_name LIKE '%'||#{keyword}||'%'
+=======
+ member_id,member_name, member_pw,member_born_date,member_phone,member_comment,member_join_date,authority,enabled ,mno
+ from member
+ WHERE member_name LIKE '%'||#{keyword}||'%'
+ or member_id like '%' ||  #{keyword} || '%'
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
  ) A
  where rownum <=#{displayPost}+#{postNum})
  where rnum > #{displayPost}
@@ -57,8 +149,16 @@
 	<![CDATA[
  		select count(mno) from member
  		WHERE member_name LIKE '%' ||  #{keyword} || '%'
+<<<<<<< HEAD
+=======
+ 		or member_id like '%' ||  #{keyword} || '%'
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
  		]]>
 
 
 	</select>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> c4d266d2a62279a024472eb8266d8a5db6e66c54
 </mapper>
